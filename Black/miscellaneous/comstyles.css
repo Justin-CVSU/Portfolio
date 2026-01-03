@@ -1,0 +1,251 @@
+/* Basic resets */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #121212;
+}
+
+h1, h2 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+  
+  .marvel-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if container has height) */
+    height: 250px;           /* Set a height if needed */
+    margin: 0 100px;
+  }
+  
+  /* Style for the logo */
+  .marvel-logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .marvel-logo:hover {
+    box-shadow: 0 0 20px #5f0404;
+    transform: scale(1.1);
+  }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+  .dc-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if container has height) */
+    height: 250px;           /* Set a height if needed */
+    margin: 0 100px;
+  }
+  
+  /* Style for the logo */
+  .dc-logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .dc-logo:hover {
+    box-shadow: 0 0 20px #49515d;
+    transform: scale(1.1);
+  }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+
+
+
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel */
+.movie-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.movie-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.movies-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    will-change: transform;
+    
+}
+
+.movie-card {
+    flex: 0 0 220px; /* Ensures all movie cards have a fixed size */
+    height: 400px; /* Matches height as well */
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    transform: scale(0.8);
+    max-width: 250px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie-card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .movie-card {
+        flex: 0 0 33.33%; /* Adjusts for tablet view */
+        max-width: 33.33%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        flex: 0 0 50%; /* Adjusts for mobile view */
+        max-width: 50%;
+    }
+}
