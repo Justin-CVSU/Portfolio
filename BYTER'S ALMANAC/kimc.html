@@ -1,0 +1,234 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Kimchi Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(kimchi1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(kimchi2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #F28C28;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Kimchi</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Kimchi</h3>
+<p>Kimchi, is a traditional Korean banchan consisting of salted and fermented vegetables, most commonly using napa cabbage or Korean radish. A wide selection of seasonings are used, including gochugaru, spring onions, garlic, ginger, and jeotgal, etc. Kimchi is also used in a variety of soups and stews.</p><br>
+<p>There are hundreds of different types of kimchi made with different vegetables as the main ingredients. Traditionally, winter kimchi, called kimjang, was stored in large earthenware fermentation vessels, called onggi, in the ground to prevent freezing during the winter months and to keep it cool enough to slow down the fermentation process during summer months. The vessels are also kept outdoors in special terraces called jangdokdae. In contemporary times, household kimchi refrigerators are more commonly used.</p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">4kg (8.8 pounds) napa cabbage (Chinese cabbage), remove thick outer cabbage leaves</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">16 cups (3840 ml) water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">1.5 cups (285g / 10 ounces) Korean coarse sea salt or natural rock salt (for salt water)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1/2 cup (97g / 3.4 ounces) cooking salt, medium sized crystals (for sprinkle)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">2 Tbsp glutinous rice flour (sweet rice flour)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1.5 cups (360 ml) water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">1.5 cups (141g / 4.97 ounces) gochugaru (Korean chili flakes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">540g / 19 ounces Korean radish or daikon radish, julienned</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">90g / 3.2 ounces Korean chives, cut in 5 cm / 2 inch length</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">140g / 4.9 ounces carrots, julienned</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/4 cup (42g / 1.48 ounces) minced garlic</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/2 Tbsp minced ginger</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">2 Tbsp raw sugar</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">75g / 2.6 ounces onion, blended (with a stick blender or vegetable chopper) or finely grated</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ul>
+<li>Cut the napa cabbage into quarters and rinse it in running water. Make sure the stem is intact.</li><br>
+<li>Dissolve the coarse salt in the water (16 cups) in a large bowl. Dip the napa cabbage in the saltwater one at a time and transfer it onto a tray for further salting. Pinch some cooking salt (1/2 cup total for all pickled cabbages) and rub over the thick white part of the cabbage. Open each leaf gently and sprinkle the salt over the thick white part. Repeat this for the rest of the cabbage. Reserve the saltwater from when you soaked the cabbage for later use.</li><br>
+<li>Put the salted cabbage in a large food grade plastic bag or large bucket (wedge side of the cabbage to be facing up) and pour in the reserved saltwater from step.</li><br>
+<li>Close the plastic bag. If using a bucket, get something heavy on top of the cabbage to press down (e.g heavy pot with water). Set the cabbage aside for 6 hours to pickle. Rotate the cabbage upside down every 2 hours. Using a large food grade plastic bag will make the turning process much easier than using a large bucket.</li><br>
+<li>Once the soaking process is finished, rinse the cabbages in running water, especially the thick white part of the cabbage, to get rid of the salt. Place them in a colander and allow to drain for 1 hour.</li><br>
+<li>While waiting, prepare the glutinous rice paste. Mix glutinous rice flour with the water (1.5 cups) in a saucepan and boil it over medium heat for 5-8 minutes, until it thickens. Once ready, transfer the rice paste to the medium-size bowl and let it cool. Add Korean chili flakes once it has cooled. Then, combine them well.</li><br>
+<li>Prepare a large mixing bowl and add radish, fine sea salt, Korean fish sauce, and salted fermented shrimp. Leave it for 10 minutes for the radish to salt down. Add Korean chives, carrots, minced garlic, minced ginger, sugar, blended onion, and the Korean chili flakes mixture from previous step. Mix them well. Now the kimchi seasoning / kimchi paste is made, ready for use.</li><br>
+<li>Place a quarter of a cabbage on a tray. Spread the seasonings over each leaf. (You only need to season one side of the leaf). 1 to 2 small fistfuls of seasoning is enough per quarter of cabbage. Repeat this step for the rest of the cabbage. Don’t pull the cabbage leaves off the stem, leave them attached so it holds together better.</li><br>
+<li>Transfer the kimchi into a kimchi container or an airtight container (and put the lid on). Leave it out at room temperature for 24 hours, then move it to the refrigerator. While you can start eating it once it’s chilled, you may want to wait 3-4 more days for it to develop more flavor.</li><br>
+		</ul>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

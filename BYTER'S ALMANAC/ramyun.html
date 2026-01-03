@@ -1,0 +1,249 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Ramyun Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(ramyun1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(ramyun2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #B87333;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Ramyun</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Ramyun</h3>
+<p>Shin Ramyun is a brand of instant noodle that has been produced by the South Korean food company Nongshim since 1 October 1986. It is now exported to over 100 countries, and is the best-selling instant noodle brand in South Korea. </p><br>
+<p>The main difference between this and ramen is that the latter is fresh, but you can make your own homemade ramyun.</p><br>
+<p>Shin Ramyun, well known for its spicy flavor, is produced in at least four varieties: the original Shin Ramyun and Shin Ramyun Black, which was introduced in 2011 as well as Super Spicy, which was released in 2019, and, finally, a shrimp flavor that is only available in China. A standard package of Shin Ramyun consists of noodles, a packet of flavoring powder (soup base), and a packet of vegetable flakes. Shin Ramyun Black contains an extra packet of beef stock soup, which gives the soup a more intensely savory flavor.</p><br></p><br>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">1 (6-inch) piece kombu (sea kelp)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">2 ounces niboshi or shaved katsuobushi</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">12 scallions, divided</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">2 tablespoons canola oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">2 pounds beef short ribs or oxtails</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1 medium onion, split in half</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">1 (3-inch) knob ginger, cut into 3 slices</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">8 cloves garlic, divided</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">2 tablespoons gochujang (see notes), plus more to taste</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon doubanjiang (see notes)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 1/2 quarts homemade or store-bought low-sodium chicken stock</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon gochugaru, plus more to taste</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 (8-ounce) jar cabbage kimchi, with its juices</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon soy sauce</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">Kosher salt and freshly ground black pepper</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">8 ounces hon-shimeji or sliced shiitake mushrooms</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">4 to 6 servings ramen-style noodles</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">4 to 6 soft boiled eggs</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+<li>Cover kombu with 1 quart cold water. Bring to a boil over medium-high heat. Immediately reduce heat to low and add niboshi or katsuobushi. Let steep for 15 minutes, then drain broth and discard solids. Set aside. While broth simmers, roughly chop 8 scallions and set aside. Finely slice remaining 4 scallions and refrigerate in a sealed container until ready to use.</li><br>
+<li>Heat 1 tablespoon oil in a heavy Dutch oven or stock pot over high heat until lightly smoking. Add as many short ribs as fit in a single layer and cook, turning occasionally, until browned on all sides, about 10 minutes total. Transfer to a large bowl and repeat until short ribs are all browned.</li><br>
+<li>Add onion (cut side down) and ginger to pot and cook until well browned, about 5 minutes. Add 6 cloves garlic and roughly chopped scallions and cook, stirring, until lightly browned, about 3 minutes. Return short ribs to pot along with gochujang and doubanjiang. Stir to coat vegetables and beef in spice mixture, then add strained kombu broth and chicken broth, scraping up any browned bits from the bottom of the pot. Bring to a boil, reduce to a bare simmer, cover with the lid slightly cracked, and cook until beef easily separates from the bones, about 4 hours. For best results, allow to cool and transfer to refrigerator overnight.</li><br>
+<li>When ready to proceed, strain soup through a fine-mesh strainer (if refrigerated overnight, you'll have to reheat it slightly until it liquefies). Transfer liquid to a medium pot and skim off any excess fat. Pick out short ribs and transfer to a bowl. Discard remaining solids. When cool enough to handle, pick meat off of short rib bones and transfer to a cutting board. Discard bones. Roughly chop meat and set aside.</li><br>
+<li>Add gochugaru to broth. Place a fine-mesh strainer over the pot and strain kimchi juice into the broth. Finely mince remaining garlic with a garlic press or a microplane and stir into broth. Add soy sauce. Season broth to taste with salt, pepper, and extra gochugaru and gochujang if a spicier flavor is desired. Bring to a simmer and keep warm.</li><br>
+<li>Heat remaining tablespoon oil in a medium skillet over medium-high heat until shimmering. Add mushrooms and cook until lightly browned, about 4 minutes. Add chopped short rib and cook, tossing occasionally, until crisped in spots and well browned, about 5 minutes longer. Remove from heat and set aside.</li><br>
+<li>Cook ramen noodles according to package instructions. Divide into individual pre-heated serving bowls. Top with broth, followed by crisped beef and mushrooms, sliced scallions, kimchi, and a soft boiled egg split in half. Serve immediately.</li><br>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Pork Sinigang Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(porksini1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(porksini2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #32CD32;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Pork Sinigang</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+		<h2>History</h2>
+	</div>
+<h3>What is Sinigang</h3>
+
+<p>Sinigang is a Filipino soup or stew characterized by its
+sour and savory taste. It is most often associated with
+tamarind,<br> although it can use other sour fruits and
+leaves as the souring agent. It is one of the more
+popular dishes in Filipino cuisine.<br> The soup is usually 
+accompanied by rice.<br><br>
+
+
+One of the most beloved and familiar Filipino dishes out there, sinigang introduces
+a great balance of warmth and sourness.<br> The tamarind broth is something that
+brings a great uniqueness to the dish, while hyping up the flavor of all other
+ingredients.<br> But have you ever imagined this culinary classic with say, tender cuts
+of pork baby back ribs? This might be your call to give<br> 
+Porknigang a try.<br><br>
+
+ 
+This recipe has a wealthy amount of vegetables— from okra to eggplant to daikon
+ radish. These perfectly complement our<br> Sinigang broth. But the factor of pork
+ spare ribs really heightens up the dish in terms of its soft texture, and meaty,
+ savory flavor.<br> Trying this cut of pork with a wealthy deal of sourness is also sure to
+ excite your palate. How about we go ahead and make this classic<br> dish with a twist?<br>
+</p>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+	
+<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork">3 lbs. pork baby back ribs (sliced into cubes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bok Choy" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Bok Choy">3 bunches bok choy</label>
+        </div>
+		<div class="checkbox">
+          <input name="Tomato Sauce" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Tomato Sauce">8 oz. tomato sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Olives" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Green Olives">¾ cup green olives</label>
+        </div>
+		<div class="checkbox">
+          <input name="Red Bell Pepper" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Red Bell Pepper">1 piece red bell pepper sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Bell Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Green Bell Pepper">1 piece green bell pepper sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Potatoes" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Potatoes">2 pieces potatoes cubed</label>
+        </div>
+		<div class="checkbox">
+          <input name="Carrot" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Carrot">2 pieces carrot sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Onion">1 piece onion chopped</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Garlic">3 cloves garlic chopped</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Water">1 1/2 cups water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Liver" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Liver">½ cup liver spread</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cooking Oil" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Cooking Oil">3 tablespoons cooking oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Salt & Black Pepper" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Salt & Black Pepper">Salt and ground black pepper to taste</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li>We will start out by taking 3 tablespoons of cooking oil, and pouring this into a
+pot. Make sure it is large in size, as we will be putting together a lot of vegetables
+and other components for this stew.</li><br>
+
+ 				<li>Now apply heat, and wait for the oil to get
+hot. Once it does, proceed to add your 1 piece of onion you’ve cut into wedges, as
+well as 2 tomatoes. Sauté these together, until the layers of the onion begin to
+separate. That would be your sign to integrate 3 lbs. of pork baby back ribs into the pot.</li><br>
+
+ 				<li>Keep on sautéing the ingredients together, until your pork becomes light brown.
+Then pour 1 ½ liters of water inside, and cover the pot. We will wait for the water
+to boil, and when it begins boiling, you should take the heat to the low setting.</li><br>
+
+ 				<li>After that, keep on boiling for 30 more minutes. This truly helps get the baby back
+ribs perfectly tender for eating later.</li><br>
+
+ 				<li>Once the time has passed, you can start incorporating some of your seasonings to
+give the dish an unmistakably delightful sinigang taste. For this, we will use 44
+grams of Knorr Sinigang sa Sampaloc with Gabi recipe mix</li><br>
+
+ 				<li>We will also add 1 cup
+of sliced daikon radish— an essential sinigang ingredient that provides some extra
+tartness. Then stir these new ingredients into the mixture.</li><br>
+
+				<li>Afterwards, cover your
+pot. We will keep this cooking until the pork has gotten tender enough. Make sure
+to check every once in a while if your pork has gotten to your texture of
+preference.</li><br>
+
+<li>Go ahead and take your 3 pieces of long green chili
+pepper, and 15 string beans you’ve cut up in 2-inch pieces, and place this into the
+pot. Also add 8 pieces of okra, and 1 eggplant you’ve sliced up. Then let this cook
+for about 12 minutes.</li><br>
+
+<li>After that, we will put our 3 bunches of pechay inside. Let this cook for a shorter
+time, which would be 3 minutes. Then we’re practically done! All you need to do to
+finish it off is season with some fish sauce and ground black pepper. Add as much
+as you’d like to get it to the flavor you desire. Then transfer your lovely Porknigang
+in your serving bowl of choice.</li>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Bibimbap Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(bibimbap1.png);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(bibimbap2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #FFBF00;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Bibimbap</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Bibimbap</h3>
+<p>Bibimbap, sometimes romanized as bi bim bap or bi bim bop, is a Korean rice dish. The term bibim means "mixing" and bap is cooked rice. It is served as a bowl of warm white rice topped with namul and gochujang. Egg and sliced meat are common additions, stirred together thoroughly just before eating.
+</p><br>
+<p>The origin of the many names of bibimbap come from Korea's hanja based records, originally appearing in Yeokjogumun (Korean: 역조구문; Hanja: 歷朝舊聞) of Gijaejapgi (Korean: 기재잡기; Hanja: 寄齋雜記) by Bak Dongnyang (Korean: 박동량; Hanja: 朴東亮) in the end of 16th century (around 1590). This record associated the original bibimbap as "hondonban (混沌飯)" This later went on to become beubwieumbap (브뷔음밥) nearly 200 years after the hanja record, and was documented in a Hangul record. The hanja dictionary (Korean: 한대자전; Hanja: 漢大字展) indeed contained "bubwida (부뷔다)" or "bubwium (부뷔움), Dong (董)" in hanja, which meant "mix" or "bibida" in Korean. In the late 19th century the two names were recorded for the recipe being bubaeban (捊排飯) and goldongban (骨董飯), with the recipe being written in pure Korean. Other various recordings after this include (in Hanja) goldongban (骨董飯, 汨董飯), hondonban (混沌飯), and bubaeban (捊排飯) and also banyuban (盤遊飯); then in Hangeul, bubwiumbap (부뷔움밥), bubieumbap (부비음밥), bubwimbap (부뷤밥), bubuimbap (부븸밥), bubwinbap (부뷘밥), and bubimbap (부빔밥).</p><br>
+<p></p><br>
+<p></p><br>
+<p></p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">100g / 3.5 ounces beef mince (or other cuts)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk"> Tbsp soy sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">1 Tbsp sesame oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1 tsp brown sugar</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">250g (0.6 pounds) seasoned spinach</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1.5 cups (141g / 4.97 ounces) gochugaru (Korean chili flakes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">350g (0.8 pounds) seasoned bean sprouts</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">100g (3.5 ounces) shiitake mushroom</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">120g (4.2 ounces) carrots (1 small)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/2 tsp fine sea salt (1/4 tsp each will be used when cooking shiitake mushroom and carrots)</label>
+        </div>
+	</div>
+	<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">3 to 4 serving portions of steamed rice</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">3 or 4 eggs (depending on the serving portion)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">Rice bran oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">Toasted seasoned seaweed, shredded (long thin cut)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">72 Tbsp gochujang</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1 Tbsp sesame oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">1 Tbsp sugar(raw sugar)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">1 Tbsp water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">1 Tbsp roasted sesame seeds</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 Tsp apple vinegar</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 Tsp minced garlic</label>
+        </div>
+</div>
+</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ul>
+<li>For meat, mix the beef mince with the meat sauce listed above. Marinate the meat for about 30 mins while you are working on other ingredients to enhance the flavour. Add some cooking oil into a wok and cook the meat on medium high to high heat. It takes about 3 to 5 mins to thoroughly cook it.</li><br>
+<li>Mix the bibimbap sauce ingredients in a bowl.</li><br>
+<li>Cook spinach and bean sprouts per linked recipe.</li><br>
+<li>Rinse, peel and julienne the carrots. Add some cooking oil and 1/4 tsp of fine sea salt in a wok and cook the carrots on medium high to high heat for 2 to 3 mins.</li><br>
+<li>Clean/rinse the shiitake mushrooms and thinly slice them. Add some cooking oil and 1/4 tsp of fine sea salt in a wok and cook the mushrooms on medium high to high heat until they are all cooked. (It takes 2 to 3 mins).</li><br>
+<li>Make fried eggs. (While sunny side up is common, you can make them per your preference.)</li><br>
+<li>Put the rice into a bowl and add the meat, assorted vegetables, seasoned seaweed, bibimbap sauce, and the egg on top of the rice. Serve.</li><br>
+<li>To eat, mix the ingredients in the bowl, and enjoy!.</li><br>
+		</ul>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

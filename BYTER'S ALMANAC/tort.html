@@ -1,0 +1,223 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Tortillas Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(tortilla1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(tortilla2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #FFBF00;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Tortillas</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Tortillas</h3>
+
+<p>(also known as Spanish Omelette or tortilla de papas) is an easy Spanish recipe made
+with potatoes, onion, eggs, salt, and oil. </p><br>
+
+<p>In Spain, the dish goes by a few different names, including tortilla de patatas, tortilla española, or
+tortilla de papas. (The American translation is a Spanish Omelette.) It’s an egg and potato dish that’s
+cooked in a skillet and served as a tapa, a main dish with a baguette and green salad, or even enjoyed as
+a snack.
+It tastes great served warm, cold, or at room temperature.</p><br>
+
+<p>Tortillas are a staple in Mexican and Central American cuisine. These thin, unleavened flatbreads are typically made from either corn maize or flour, and they’re used in a variety of ways.
+
+We all know the tortilla basics, but what about their history? Where are they from, and how were they named?
+
+According to legend, tortillas were invented by a Mayan peasant for his hungry king. The first recorded use of tortillas dates to roughly 10,000 BC, and were made from corn. And when the Spanish arrived, they discovered native inhabitants like the Aztecs and others all ate some sort of maize bread.
+
+The Spanish gave this bread it’s current name, tortilla, from the Spanish word meaning “little cake.” This relates back to southern Spain, where it has Arabic roots from thin round crisps made from ground chickpeas.
+
+Selecting and Serving Tortillas</p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Extra virgin olive oil" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Extra virgin olive oil">2 ½ cups extra virgin olive oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Potatoes" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Potatoes">3 medium Yukon Gold Potatoes , (about 2 lbs), peeled<br> 
+		  and thinly sliced (about ¼ inch thick)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Onion">1 yellow or white onion</label>
+        </div>
+		<div class="checkbox">
+          <input name="Eggs" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Eggs">6 eggs , beaten</label>
+        </div>
+		<div class="checkbox">
+          <input name="Salt" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Salt">2 teaspoons crushed sea salt , divided</label>
+        </div>
+	</div>
+</div>
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li>Add olive oil to a 10 or 12 inch skillet over medium heat. (It’s best to use a skillet that is at least 1 ½
+inches deep.)
+</li><br>
+ 				<li>Add sliced potato and onion to the pan; they should be mostly covered with olive oil (add a little
+more oil if needed).</li><br>
+ 				<li>Season with 1 ½ teaspoon sea salt.</li><br>
+ 				<li>Cook on medium-high heat, maintaining a gentle boil, for 8-12 minutes, turning occasionally, until
+potatoes are just fork tender. Don’t overcook them!</li><br>
+<li>Drain potatoes, reserving oil for later use. Taste and season potatoes with more salt, if needed. Allow
+them to cool for a few minutes.
+A skillet with sliced potatoes and onion in oil, next to another photo of the cooked potato and onion in a fine mesh strainer placed over a metal bowl.</li><br>
+<li>Meanwhile crack the eggs into a bowl and season with about ½ teaspoon of salt. Beat the eggs
+together and pour over the cooked potatoes and onion and toss to coat.
+Eggs being beaten with a fork in a small clear bowl next to another photo of the beaten eggs combined with cooked slices of potato and onion in a bowl.</li><br>
+<li>Add a little bit of oil to the bottom of a 10-inch non-stick skillet over high heat. Once hot, pour potato
+mixture into it and cook on high heat for 1 minute. Reduce heat to medium-low and cook for about 5 minutes.</li><br>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

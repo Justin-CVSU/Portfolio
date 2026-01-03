@@ -1,0 +1,266 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Lasagna Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(lasagna1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(lasagna2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #edad4b;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Lasagna</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Lasagna</h3>
+<p>Lasagna is a type of pasta, possibly one of the oldest types, made of very wide, flat sheets. Either term can also refer to an Italian dish made of stacked layers of lasagna alternating with fillings such as ragù, béchamel sauce, vegetables, cheeses, and seasonings and spices.</p><br>
+<p>What Does Lasagna Mean?
+The origins of the word lasagne or lasagna can be traced back to Ancient Greece. What we know as lasagne or lasagna is derived from the word “laganon”, which was the first form of pasta. Laganon was a reference to flat sheets of pasta dough cut into thin strips. As you might expect, Laganon looked very different from what we know to be a typical lasagna dish today. It consisted of layers of pasta and sauce without traditional Italian ingredients. Ancient Rome was known to have a similar dish called “lasanum”, which is Latin for container or pot. Italians used this word to refer to the pot that the dish was served in. Eventually, the dish evolved and took on the same name. The origins of what we know as twisted macaroni came later. 
+
+Lasagne is the plural word for one sheet of lasagna and is used regionally throughout Italy. Referencing lasagne or lasagna depends on whether you’re in the northern or southern regions of Italy. The plural form is mostly used in British English, while American English is known to use the singular version. </p><br>
+<p>When was lasagna invented? The Italian favorite of lasagne or lasagna that we all know and love originated in Italy in the city of Naples during the Middle Ages. One of the first references to modern-day lasagne can be found in a 14th-century English cookbook that highlighted a dish with layers of pasta without the tomatoes. Later, another reference was made to lasagne in an Italian cookbook in the 1880s that featured tomato sauce. </p><br>
+<p>The dish eventually evolved into the traditional lasagna of Naples called “Lasagna di Carnevale” made with local sausage, fried meatballs, hard-boiled eggs, ricotta or mozzarella, and Neapolitan Ragu. One of the most popular variations of this lasagna dish is called “Lasagna al Forno.” This variation originates from the Italian region of Emilia-Romagna and is made with ricotta or mozzarella, thick Ragu, bechamel sauce, wine, onion, oregano, and green sheets of pasta made with spinach. Lasagne’s history wouldn’t be complete without variety throughout the regions of Italy. Different areas may use different dough or sauces. The beautiful Italian region of Piedmont specializes in lasagna al Sangue, which translates to “bloody lasagne” due to the addition of blood from a slaughtered pig. </p><br>
+<p></p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">2 teaspoons extra virgin olive oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">1 pound ground beef chuck</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">1/2 medium onion, diced (about 3/4 cup)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1/2 large bell pepper (green, red, or yellow), diced (about 3/4 cup)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">2 cloves garlic, minced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1 (28-ounce)can good-quality tomato sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">3 ounces tomato paste (half a 6-ounce can)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">1 (14 ounce) can crushed tomatoes</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">2 tablespoons chopped fresh oregano, or 2 teaspoons dried oregano</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/4 cup chopped fresh parsley (preferably flat leaf), packed</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon Italian seasoning</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 pinch garlic powder and/or garlic salt</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water"></label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon red or white wine vinegar</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tablespoon to 1/4 cup sugar (to taste, optional)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">Salt</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/2 pound dry lasagna noodles (requires 9 lasagna noodles - unbroken)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">15 ounces ricotta cheese</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 1/2 pounds (24 ounces) mozzarella cheese, grated or sliced</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/4 pound (4 ounces) freshly grated Parmesan cheese</label>
+        </div>
+
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+<li>Put pasta water on to boil: Put a large pot of salted water (1 tablespoon of salt for every 2 quarts of water) on the stovetop on high heat. It can take a while for a large pot of water to come to a boil (this will be your pasta water), so prepare the sauce in the next steps while the water is heating.</li><br>
+<li>Brown the ground beef: In a large skillet heat 2 teaspoons of olive oil on medium-high heat. Add the ground beef and cook until it is lightly browned on all sides. Remove the beef with a slotted spoon to a bowl. Drain off all but a tablespoon of fat.</li><br>
+<li>Cook the bell pepper, onions, and garlic; add back the beef: Add the diced bell pepper and onions to the skillet (in the photo we are using yellow bell pepper and red onions). Cook for 4 to 5 minutes, until the onions are translucent and the peppers softened. Add the minced garlic and cook half a minute more. Return the browned ground beef to the pan. Stir to combine, reduce the heat to low, and cook for another 5 minutes.</li><br>
+<li>Make the sauce: Transfer the beef mixture to a medium-sized (3- to 4-quart) pot. Add the crushed tomatoes, tomato sauce, and tomato paste to the pot. Add the parsley, oregano, and Italian seasonings, adjusting the amounts to taste. Sprinkle with garlic powder and/or garlic salt, to taste. Sprinkle with red or white wine vinegar. Stir in sugar, a tablespoon at a time, tasting after each addition, to taste. (The amount of sugar needed will vary, depending on how acidic the tomatoes are that you are using.) Add salt to taste, and note that you will later be adding Parmesan, which is salty. Bring the sauce to a simmer and then lower the heat to maintain a low simmer. Cook for 15 to 45 minutes, stirring often. Scrape the bottom of the pot every so often so nothing sticks to the bottom and scorches. Remove from heat.</li><br>
+<li>Boil and drain the lasagna noodles: By now the salted water you started heating in step one should be boiling. Add the dry lasagna noodles and cook them to al dente, per package directions. (Note noodles may be cooked in advance.) Stir often to prevent from sticking. Make sure that water remains at a full rolling boil during the entire cooking to prevent noodles from sticking. When ready, drain in a colander and rinse with cool water, gently separating any noodles that may be sticking together. Spread a little olive oil on a large rimmed baking sheet, and lay out the cooked noodles on this sheet, turning them over so that they get coated with a little of the olive oil. This will prevent them from sticking together.</li><br>
+<li>Preheat the oven to 375°F.</li><br>
+<li>Assemble the lasagna: In a 9x13-inch casserole or lasagna dish, ladle a cup of sauce and spread it over the bottom of the dish. Arrange one layer of lasagna noodles lengthwise (about 3 long noodles, the edges may overlap, depending on your pan) over the sauce. Ladle a third of the remaining sauce over the noodles. Sprinkle a layer of a third of the grated mozzarella on top of the lasagna sauce. Add half of the ricotta cheese, by placing cheese dollops every couple of inches. Sprinkle half the grated parmesan cheese evenly over the top of the ricotta cheese. Apply the second layer of noodles and top it with half of the remaining sauce. Add half of the remaining mozzarella, the remaining ricotta cheese, and another the remaining Parmesan. Finish with another layer of noodles. Spread the remaining sauce over the top layer of noodles and sprinkle with the remaining mozzarella cheese.</li><br>
+<li>Bake: Cover the lasagna pan with aluminum foil, tented slightly so it doesn't touch the noodles or sauce). Bake at 375°F for 45 minutes. Uncover in the last 10 minutes if you'd like more of a crusty top or edges.</li><br>
+<li>Cool and serve: Allow the lasagna to cool for at least 15 before serving. Leftovers will keep for about 5 days. You can reheat it in a conventional oven or microwave. Leave the aluminum tent on for storage. (Try to keep the aluminum foil from touching the sauce.)</li><br>
+
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

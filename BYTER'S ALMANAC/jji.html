@@ -1,0 +1,234 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Jjigae Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(jjigae1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(jjigae2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #CC5500;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Jjigae</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Jjigae(Kimchi Stew)</h3>
+<p>Kimchi, is a traditional Korean banchan consisting of salted and fermented vegetables, most commonly using napa cabbage or Korean radish. A wide selection of seasonings are used, including gochugaru, spring onions, garlic, ginger, and jeotgal, etc. Kimchi is also used in a variety of soups and stews.</p><br>
+<p>A Korean meal almost always includes either a jjigae or a guk. During the Joseon dynasty, it was known as jochi, and two varieties would always be present on the King's surasang. The types of jjigae are often named according to their principal ingredients, such as saengseon jjigae (생선찌개) made from fish or dubu jjigae (두부찌개) made from tofu, or according to their broth and seasonings like gochujang jjigae (고추장찌개) or doenjang jjigae (된장찌개).</p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">180g (0.4 pounds) skinless pork belly, cut into bite size pieces</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">1 Tbsp rice wine (mirin)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">3 sprinkles ground black pepper</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">3/4 cup aged (at least 2 to 3 weeks old) kimchi, cut into bite size pieces if not already</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">1/4 small (30g, 1 ounce) brown onion, thinly sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1/2 stalk small (5g, 0.2 ounce) green onion, thinly sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">2 small (50g, 1.4 ounces) shiitake mushrooms, stems removed, thinly sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">150g (5.3 ounces) firm tofu, sliced into 1cm (0.4 inch) thickness rectangle (or other shapes you may prefer)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">1 cup water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 Tbsp Korean chili flakes (gochugaru)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 Tbsp Korean chili flakes (gochugaru)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 Tbsp soy sauce</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 tsp Korean chili paste (gochujang)</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/4 tsp minced garlic</label>
+        </div>
+<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">3 sprinkles ground black pepper</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ul>
+ 				<li>Marinate the pork belly with the rice wine and the ground black pepper for about 15 mins.</li><br>
+<li>Cook the kimchi in a skillet until soft. (You could do this in the pot where you will make this jjigae. Do this only if the pot is big enough to manoeuvre around.)</li><br>
+<li>Put the marinated meat into the bottom of the pot. Add all the other ingredients (kimchi, onion, mushrooms, tofu, water and the base sauce) except for green onion into the pot.</li><br>
+<li>Boil the pot on medium high heat initially then reduce the heat to medium once it starts boiling. Cook further until the meat is cooked. Make sure the sauce is well blended into the rest of the ingredients. (This can be done by gently mixing the sauce around the soup with a small teaspoon and splashing the soup over other ingredients every now then). When the meat is cooked, add the green onion and turn the heat off.</li><br>
+<li>Serve with rice (and other side dishes)</li><br>
+		</ul>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Dynamite Lumpia Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(lumpia1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(lumpia2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #32CD32;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Dynamite Lumpia</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+		<h2>History</h2>
+	</div>
+		<h3>What is Lumpia</h3>
+
+<p>Lumpia are various types of spring rolls commonly
+found in Indonesia and the Philippines. Lumpia are<br> 
+made of thin paper-like or crepe-like pastry skin called
+"lumpia wrapper" enveloping savory or sweet fillings. It<br> 
+is often served as an appetizer or snack, and might be
+served deep-fried or fresh.
+<br><br>
+Dynamite Lumpia is a version of the popular Filipino deep-fried egg rolls. This 
+version is unique because it involves<br> the use of stuffed long green chili. The idea is
+somewhat similar to chile relleno, except that the stuffed chili peppers<br> are 
+wrapped in lumpia wrapper and deep fried<br> until golden brown and crispy. 
+<br><br>
+I like to have my dynamite lumpia as an appetizer. This goes well with cold
+beverages. It can also be consumed<br> as a main dish similar to other lumpia 
+varieties. However, expect to consume more rice to balance the spiciness.
+</p>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+	
+<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Green Pepper" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Green Pepper">8 pieces long green pepper</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cheddar cheese" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Cheddar cheese">4 ounces cheddar cheese</label>
+        </div>
+		<div class="checkbox">
+          <input name="Lumpia Wrapper" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Lumpia Wrapper">8 pieces lumpia wrapper</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cooking Oil" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Cooking Oil">2 cups cooking oil</label>
+
+		<div class="checkbox">
+          <input name="Ground Pork" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Ground Pork">6 ounces ground pork</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Onion">1 piece onion minced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Garlic">3 cloves garlic crushed and minced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Egg" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Egg">1 piece egg</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cooking Oil" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Cooking Oil">2 tablespoons cooking oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Salt & Black Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Salt & Black Pepper">Salt and ground black pepper to taste</label>
+        </div>
+	</div>
+</div> 
+
+</div>
+		</div>
+		<div class="text-card">
+				<h2>Process</h2><br>
+				<ul>
+ 				<li>Saute Garlic and Onions Lumpia-The first component to prepare is the meat filling. This requires cooking the
+ground pork. Start by heating oil in a pan. Saute garlic and onion. I like the garlic
+to brown a bit. This is the reason why I cook it first before adding-in the onion.
+Continue to saute until the onion softens. This will provide a mild sweet flavor to
+the filling.</li><br>
+ 				<li>Season Ground Pork Filling Lumpia-Add the ground pork. The meat needs to cook thoroughly. Continue to saute while
+stirring until the pork turns medium brown. It takes around 5 to 7 minutes when
+cooked in medium heat. Season with salt and ground black pepper.</li><br>
+ 				<li>Pour Beaten Egg on Lumpia Filling-Remove the cooked ground pork from the pan and put it in a bowl or plate. Let it
+cool down for 5 to 8 minutes. Beat a piece of egg and pour over the cooked pork
+and mix well. The egg serves as the binder. It helps keep the mixture intact.<br><br>Next is to prepare the chili. Slice it lengthwise on one side. Remove the seeds and
+then start to stuff with cheese. The cheese needs to be sliced accordingly based on
+the shape of the pepper. Do not put too much cheese. Leave some room for the
+meat.</li><br>
+ 				<li>Stuffed Chili Pepper Lumpia-Stuff the chilies with the cooked meat mixture. Make sure to add enough meat,
+but not too much. It should look like chile relleno at this point.</li><br>
+ 				<li>Wrap Lumpia in Flour Wrapper-Wrap each stuffed chili in lumpia wrapper. Deep fry until golden brown and crispy.
+You don’t need to worry about the doneness of the stuffing because the meat was
+already pre-cooked. The cheese inside will melt as you fry the dynamite lumpia.
+You should expect a spicy lumpia with a crisp skin and tasty and rich filling.</li><br>
+		</ul>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

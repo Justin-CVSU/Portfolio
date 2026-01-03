@@ -1,0 +1,258 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Gazpacho Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(gazpacho1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(gazpacho2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #FF5F1F;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Gazpacho</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Gazpacho</h3>
+
+<p> Traditional Spanish gazpacho is easy to make, super healthy, bursting with flavor, and 
+absolutely delicious! It's usually served as an appetizer in a small bowl with 
+toppings, or from a glass as a drink. Either way, it really hits the spot on a hot day!
+</p><br><br>
+<p>Gazpacho or Gaspacho, also called Andalusian gazpacho, is a cold soup and drink made of raw, blended vegetables. 
+It originated in the southern regions of the Iberian peninsula and spread into other areas. 
+Gazpacho is widely eaten in Spain and Portugal, particularly during hot summers, since it is refreshing and cool.
+</p><br><br>
+<p>My traditional gazpacho recipe comes straight from Andalusia and it is truly 
+the best gazpacho recipe out there for the classic version. I hope you enjoy it!
+</p><br><br>
+
+<p>In fact, gazpacho predates the 16th century arrival of tomatoes (and peppers)
+in Europe; most culinary historians say that its roots go back to Islamic Spain, 
+sometime between the 8th and 13th centuries. According to Clara Maria G. de
+Amezua, an authority on Spanish cuisine and founder of the Alambique cooking 
+school in Madrid, gazpacho dates back to the 7th century.
+</p><br><br>
+
+<p>What is key about this version of gazpacho is its potential to be eaten from a bowl
+(versus sipped from a glass) with lots of delicious toppings. This makes it more like 
+a traditional cold soup and less like a vegetable juice.
+</p><br><br>
+<p>Traditional Spanish gazpacho is served by the glass, just like juice.
+</p>
+
+
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<div class="form-group ">
+   <div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Tomatoes" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Tomatoes">6-7 medium tomatoes (the
+		  quality of the tomatoes is one of the most important factors<br> 
+		  in the taste, use vine-ripened when possible, and don’t use the green salad tomatoes!)
+</label>
+        </div>
+		<div class="checkbox">
+          <input name="Pepper" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Pepper">1 green Italian pepper (the long type, not a bell pepper)
+</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cucumber" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Cucumber">1 cucumber</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Onion">½ of a small white onion</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">1 clove of garlic (not too big)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Olive Oil" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Olive Oil">¼ cup Extra Virgin Olive Oil<br> 
+		  ((60 ml) again, quality is important)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Vinegar" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Vinegar">A splash of Sherry vinegar <br>
+		  (Vinagre de Jerez, although red or white wine vinegar can be substituted)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Salt" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Salt">A pinch (or two) of salt</label>
+        </div>
+		<div class="checkbox">
+          <input name="Options" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Options">Optional toppings (For ex: diced green apple, diced onion, <br>
+		  diced pepper, croutons, & hard-boiled eggs)</label>
+        </div>
+	</div>
+</div>
+</div>
+
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li>Making gazpacho is easy! You'll need a decent blender, and for a really smooth
+version, you'll want to use a fine strainer (in Spain most people have a chinois strainer).
+
+Start by roughly chopping the vegetables to add to the blender.
+Depending on how powerful your blender is, you may need to chop smaller.
+</li><br>
+ 				<li>Now, add all of the vegetables to the blender. We'll blend these first --
+then add the liquids and seasoning! Tip: Always put the most liquidy veggies
+(the tomatoes here) on the bottom of the blender.</li><br>
+ 				<li>Blend away!</li><br>
+ 				<li>Now we season the gazpacho -- add some salt and vinegar first.
+Then, while the blender is running, slowly incorporate the olive oil so that it blends
+right in. Finally, check the taste and texture and add some ice-cold water if you want.</li><br>
+<li>Your gazpacho is ready to serve! You can enjoy it by the glass, or serve it
+in a bowl with toppings on the side. Don't forget a drizzle of extra virgin olive oil
+and sprinkle of sea salt right before eating!</li><br>
+
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

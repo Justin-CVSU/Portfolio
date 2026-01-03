@@ -1,0 +1,291 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Tempura Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(tempura1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(tempura2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #FFE5B4;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Tempura</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Tempura</h3>
+
+<p>Tempura is a typical Japanese dish that was originally 
+  introduced to Japan by the Portuguese in Nagasaki
+  through fritter-cooking techniques during the 16th
+  century. The dish usually consists of seafood, meat 
+  and vegetables that have been battered and deep 
+  fried.
+</p>
+
+<p>Chicken Tempura is a regional favorite in Oita Prefecture of Kyushu region in Japan. With a
+  crispy and fluffy batter on the outside and juicy and tender meat inside, this Chicken
+  Tempura is best enjoyed by dipping with citrusy ponzu sauce.
+</p>
+
+
+<h2>What is Chicken Tempura?</h2>
+
+<p>If you never heard of “chicken tempura” before, you’re not alone. I even thought chicken
+  tempura is a westernized version of tempura.
+
+My Mom and Aunt lives in Japan right now. They work there and would eat street foods and sometimes at restaurants
+They would eat all kinds of dishes there like the chicken tempura 
+However, I had never tried chicken tempura or even here at 
+our country.
+
+Invented by a restaurant in Oita prefecture, Chicken Tempura, or Toriten (とり天) in<br> 
+Japanese, is a popular food mostly enjoyed in this region.
+
+As straightforward as the name implies, chicken tempura is tempura-style fried chicken. 
+Chicken breast or thigh is cut into strips, marinated in soy sauce, garlic, and ginger 
+mixture, coated in tempura batter, and deep-fried.
+
+The main difference between chicken tempura and regular tempura is the dipping sauce.
+While regular tempura is commonly served with this dipping sauce made with dashi and 
+soy, chicken tempura is often dipped in kabosu ponzu sauce with Japanese karashi hot
+mustard.
+</p>
+
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Chicken Breast" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Chicken Breast">¾ lb <strong>boneless, skinless chicken breast</strong></label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Ginger">1 knob <strong>ginger</strong></label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Garlic">1 clove <strong>garlic</strong></label>
+        </div>
+		<div class="checkbox">
+          <input name="Black Pepper" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Black Pepper"><strong>freshly ground black pepper</strong></label>
+        </div>
+		<div class="checkbox">
+          <input name="Kosher Salt" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Kosher Salt">¼ tsp <strong>Diamond Crystal kosher salt</strong></label>
+        </div>
+		<div class="checkbox">
+          <input name="Soup Stock" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Soup Stock">1 tsp sake</label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Soy Sauce">2 tsp soy sauce</label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Soy Sauce">1 <strong>large egg (50 g w/o shell)</strong></label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Soy Sauce">⅓ cup cake flour</label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Soy Sauce">⅓ cup potato starch or cornstarch</label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Soy Sauce">⅓ cup water</label>
+        </div>
+    <div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Soy Sauce">3-4 cups <strong>neutral-flavored oil</strong> (for deep frying)</label>
+        </div>          
+<h3>To Serve</h3>
+
+		<div class="checkbox">
+          <input name="Ponzu" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Ponzu">ponzu</label>
+        </div>
+		<div class="checkbox">
+          <input name="Hot Mustard" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Hot Mustard">Japanese Karashi hot mustard</label>
+        </div>
+	</div>
+</div> 
+
+
+
+
+		</div>
+		<div class="text-card">
+			<h2>Process</h2>
+				<ul>
+<li>Gather all the ingredients.</li><br>
+<li>Pound the chicken breast with a meat tenderizer. If you don’t own one, you can use the
+back of the knife. This helps to yield thinner and flatter piece of meat, so the meat cooks
+faster and more evenly (no more overcooking!).</li><br>
+<li>Cut the meat into roughly ¾" (2 cm)-wide and 3" (7.5 cm)-long strips.</li><br>
+<li>Grate 1 knob ginger and 1 garlic clove.</li><br>
+<li>Season the chicken with freshly ground black pepper, ¼ tsp kosher salt, 1 tsp sake, and 2 tsp
+soy sauce.</li><br>
+<li>Add the grated ginger and garlic and mix well with hands (rub the chicken with seasonings).</li><br>
+<li>Set a medium bowl over a large bowl with ice water in it. Add 1 egg and whisk well.</li><br>
+<li>With a fine-mesh sieve, sift the ⅓ cup (45 g) cake flour and ⅓ cup (55 g) potato or corn
+starch into the bowl with the egg.</li><br>
+<li>Gradually add ⅓ cup (75 ml) water and mix all together until just enough to combine (don’t over mix).</li><br>
+<li>Add the chicken pieces and coat well with the batter.</li><br>
+<li>Heat the 3-4 cups (720-960 ml) oil to 350ºF (180ºC) in a deep fryer (or in a medium-size
+pot). Add in only 2-3 pieces of battered chicken at one time. To prevent the temperature of
+the oil from decreasing, do not add too many cold chicken pieces at once. Deep fry each
+batch until crispy on the outside, about 4 minutes total, 2 minutes each side. Then repeat
+with another 2-3 pieces, until all pieces are cooked. Pick up tempura crumbs in the oil to
+keep your oil clean.
+</li><br>
+<li>Serve the Chicken Tempura with shredded cabbage (I use this cabbage slicer which yields
+thinly shredded cabbage) and ponzu with karashi mustard on the side.</li><br>
+		</ul>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

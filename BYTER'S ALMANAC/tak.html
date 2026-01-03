@@ -1,0 +1,342 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Takoyaki Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(takoyaki1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(takoyaki2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #e1b875;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Takoyaki</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h1>What is Takoyaki</h1>
+
+
+<p>Takoyaki is a ball-shaped Japanese snack made of a
+	wheat flour-based batter and cooked in a special 
+	molded pan. It is typically filled with minced or diced 
+	octopus, tempura scraps, pickled ginger, and green 
+	onion.
+</p>
+
+<p>Takoyaki, or Grilled Octopus Balls, are one of Japan’s best-known street food that originated 
+  in Osaka. Whether you make a traditional style with bits of octopus or other alternatives, 
+  these ball-shaped dumplings are fun to make with your friends and family!
+</p>
+
+<p>Takoyaki (たこ焼き) is a Japanese snack in the shape of little round balls containing pieces 
+  of octopus. Tako-yaki literally translates to “octopus-grilled/fried” and some people may
+   call it “Grilled Octopus Balls” or “Octopus Dumplings”.
+</p>
+
+<p>Here are some facts about takoyaki.</p>
+
+<ul>
+<li>It originated and became popular in Osaka around 1935 (according to wiki) and then 
+  spread to greater south-central Japan and beyond.
+</li>
+
+<li>It’s one of the most popular Japanese street foods along with Okonomiyaki.</li>
+
+<li>Takoyaki is usually sold by street vendors, convenience stores, supermarkets, food 
+  courts, and of course specialty restaurants. In Osaka, takoyaki stands can be easily found
+  throughout the city.</li>
+
+<li>It is usually served with slightly salty takoyaki sauce, which goes well with beer and other
+  alcoholic drinks. Therefore, many Izakaya restaurants serve takoyaki on the menu.
+</li>
+</ul>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Bonito Flakes" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Bonito Flakes">¼ cup katsuobushi (dried bonito flakes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onions/Scallions" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Onions/Scallions">2 green onions/scallions</label>
+        </div>
+		<div class="checkbox">
+          <input name="Red Ginger" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Red Ginger">1 Tbsp pickled red ginger (beni shoga or kizami beni shoga)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Eggs" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Eggs">2 large eggs (50 g each w/o shell)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Soy Sauce">1 tsp soy sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soup Stock" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Soup Stock">1½ cups dashi (Japanese soup stock)</label>
+        </div>
+
+
+<h3>For the Takoyaki Batter</h3>
+
+		<div class="checkbox">
+          <input name="Purpose Flour" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Purpose Flour">1 cup all-purpose flour (plain flour)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Baking Powder" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Baking Powder">2 tsp baking powder</label>
+        </div>
+		<div class="checkbox">
+          <input name="Kosher Salt" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Kosher Salt">½ tsp Diamond Crystal kosher salt</label>
+        </div>
+		<div class="checkbox">
+          <input name="Large Eggs" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Large Eggs">2 large eggs (50 g each w/o shell)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Soy Sauce">1 tsp soy sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soup Stock" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Soup Stock">1½ cups dashi (Japanese soup stock)</label>
+        </div>
+
+
+
+<h3>For the Toppings</h3>
+
+
+		<div class="checkbox">
+          <input name="Takoyaki Sauce" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Takoyaki Sauce">½ cup takoyaki sauce (make my Homemade Takoyaki Sauce or use tonkatsu sauce)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Mayonnaise" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Mayonnaise">Japanese Kewpie mayonnaise</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bonito Flakes" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Bonito Flakes">katsuobushi (dried bonito flakes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Seaweed" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Green Seaweed">aonori (dried green layer seaweed)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Red Ginger" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Red Ginger">pickled red ginger (beni shoga or kizami beni shoga)</label>
+        </div>
+	</div>
+</div>
+
+
+
+
+
+		</div>
+		<div class="text-card">
+			<h2>Process</h2>
+				
+<h2>How To Cook Takoyaki</h2><br>
+<ol>
+<li>Gather all the ingredients.</li><br>
+</ol>
+
+<h2>To Prepare the Filling</h2><br>
+<ol>
+<li>Grind the katsuobushi (bonito flakes) into a fine powder.<br> 
+	Set aside; we'll use this powder when we're cooking the takoyaki.</li><br>
+
+<li>Cut the green onions into fine slices and mince the red pickled ginger.</li><br>
+
+<li>Cut the octopus into ½ inch (1.3 cm) bite-sized pieces (cut into smaller pieces for kids<br> 
+	so they can chew it more easily). My aunt uses the "rangiri" cutting technique.</li><br>
+</ol>
+
+<h2>To Make the Takoyaki Batter</h2><br>
+<ol>
+<li>In a large mixing bowl, combine the all-purpose flour, baking powder, and kosher salt and
+whisk it all together.</li><br>
+
+<li>Add the eggs, soy sauce, and dashi.</li><br>
+
+<li>Whisk it all together until well blended and transfer the batter to a measuring cup with a
+handle (or any other pitcher with a spout for easy pouring.)</li><br>
+</ol>
+
+<h2>To Cook the Takoyaki</h2><br>
+<ol>
+<li>Heat the takoyaki pan to 400ºF (200ºC) over medium heat. Using a brush, generously oil the
+pan's rounded chambers and flat surface on top. When you see smoke rising from the pan,
+pour the batter to fill the chambers. It’s okay to slightly overfill the cavities with the batter. In
+the next steps, the batter will likely overflow as you add more ingredients to it.
+</li><br>
+
+<li>Add 1-3 octopus pieces, depending on their size, to each chamber and sprinkle on top the
+katsuobushi powder that you ground earlier.</li><br>
+
+<li>Sprinkle the tenkasu, green onion, and pickled red ginger on top. After 3 minutes or so,
+when the batter on the bottom of the balls has set and is slightly crisp, use skewers to break
+the connected batter between each ball. Then, rotate each piece 90 degrees (a quarter turn)
+toward the bottom of the pan, stuffing the connected dough back into the ball as you turn
+to help form a ball shape. The uncooked batter will flow out from inside each takoyaki to
+create another side of the ball. After you finish turning them, set a timer for 4 minutes.
+</li><br>
+
+<li>Next, rotate them a second time, starting again with the first ball: Turn each takoyaki
+another 90 degrees toward the bottom of the pan so the remaining uncooked batter pours
+out into the chamber to complete the ball shape. Home takoyaki griddles don't distribute
+heat evenly, so it’s a good idea to swap the balls around to different chambers so they
+brown evenly. After turning and cooking for 4 minutes, they are done.</li><br>
+
+<li>Transfer them onto a plate and drizzle the takoyaki sauce and Japanese mayonnaise on top.
+Finish the dish with a sprinkling of katsuobushi and dried green seaweed and a side of
+pickled red ginger. Serve immediately (but be careful—they're VERY hot inside!)</li><br>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

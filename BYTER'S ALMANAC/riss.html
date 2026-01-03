@@ -1,0 +1,246 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Risotto Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(risotto1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(risotto2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #d4d2ca;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Risotto</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Risotto</h3>
+<p>Risotto is a Italian rice dish cooked with broth until it reaches a creamy consistency. The broth can be derived from meat, fish, or vegetables. Many types of risotto contain butter, onion, white wine, and Parmigiano-Reggiano. It is one of the most common ways of cooking rice in Italy.</p><br>
+<p>There are few dishes as popular or as versatile as risotto.
+
+At its simplest, risotto is a hearty, warming rice dish, rich with the flavours of the stock used in its making, as well as saffron, parmesan, butter and any of the hundreds of ingredients that match so perfectly with it.
+
+Risotto is not only versatile, but easy to make, and as such the dish has found popularity around the world, from home kitchens to those of the finest restaurants.
+</p><br>
+<p>
+But what are the origins of this Italian icon?
+The history of risotto is naturally tied to the history of rice in Italy. While there are many conflicting opinions on the historical intricacies, rice was first introduced to Italy and Spain by the Arabs during the Middle Ages.
+
+The humidity of the Mediterranean was quickly found to be perfect for growing shorter-grained rices, and enormous profits were made by those selling rice in Genoa, Venice and the surrounds.
+
+The popularity of rice grew through Italy, though primarily among the wealthy owing to the still-exorbitant prices of the product.
+
+</p><br>
+<p>Once the outside world discovered the quality of the Italian product, however, the money poured in and the availability of the short-grains spread, making the rice far more widely accessible.
+
+It was in Milan where the rice met its delicious destiny. Milan had been under Spanish rule for almost two centuries (hence the similar evolution of paella in Spain), and rice had become a staple. Slow-cooking also dominated the culinary landscape of the region, with Ossobucco a long-held favourite.
+
+The slow-cooking principles were combined with the local rice, emphasising the rich flavours, and spices (particularly saffron) for which the area was known, to create ‘Risotto alla Milanese’
+
+Served by itself, or as an accompaniment to Ossobucco and other dishes, risotto was discovered to be an excellent way of using the shorter-grained rice, the starchy component of the dry grain mixing with the stock to create a thick, creamy sauce.
+
+Even now the dish is still built around the same core components: rice, stock (usually chicken), onions, butter, wine, parmesan and saffron.
+
+Today the dish is served extensively, almost unchanged, in the kitchens and restaurants of the world. Ingredients as varied as scallops, lobster, truffles, veal, mushrooms, squid ink, snails, asparagus, duck, sausage, pumpkin and almost anything else are paired with this classic dish.
+
+If you haven’t embraced the history and elegant simplicity of the risotto in your own kitchen, the dawn of Spring is your perfect opportunity.</p><br>
+<p></p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">4 cups (1 quart) chicken stock</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">1 tablespoon vegetable oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">3 tablespoons butter, divided</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1 medium shallot, chopped (about 1/2 cup; or 1/2 small onion, chopped)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">1 1/2 cups Arborio rice</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1/2 cup dry vermouth (or dry white wine)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">1/4 cup grated Parmesan cheese</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">1 tablespoon Italian parsley, chopped</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">Kosher salt, to taste</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">Freshly ground black pepper, to taste</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+<li>Gather the ingredients.</li><br>
+<li>In a medium saucepan, heat the stock to a simmer. Lower the heat so the stock stays hot while you cook the risotto.</li><br>
+<li>In a large, heavy-bottomed saucepan, heat the oil and 1 tablespoon of the butter over medium heat. When the butter has melted, add the chopped shallot or onion. Sauté for 2 to 3 minutes or until slightly translucent.</li><br>
+<li>Add the rice to the pot and stir it briskly with a wooden spoon so that the grains are coated with the oil and melted butter. Sauté for another minute or so, until there is a slightly nutty aroma. Make sure not to let the rice turn brown.</li><br>
+<li>Add the vermouth or wine and cook while stirring, until the liquid is fully absorbed.</li><br>
+<li>Add a ladle of hot chicken stock to the rice and stir every once in a while until the liquid is fully absorbed. When the rice appears almost dry, add another ladle of stock and repeat the process.</li><br>
+<li>Continue adding stock, a ladle at a time, for about 20 minutes or until the grains are tender but still firm to the bite, without being crunchy (al dente).</li><br>
+<li>Stir in the remaining 2 tablespoons of butter and the Parmesan cheese and parsley. Season to taste with kosher salt and freshly ground pepper.</li><br>
+<li>Serve in bowls and enjoy.</li><br>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

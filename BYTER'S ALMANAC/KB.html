@@ -1,0 +1,295 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Kalderetang Baboy Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(kalde1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(kalde2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #CC5500	;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Kalderetang Baboy</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Kaldereta</h3>
+
+<p>Kaldereta or caldereta is a goat meat stew from the
+Philippines. Variations of the dish use beef, chicken, or 
+pork.<br>  Commonly, the goat meat is stewed with 
+vegetables and liver paste. Vegetables may include 
+tomatoes, potatoes,<br> olives, bell peppers, and hot
+peppers. Kaldereta sometimes includes tomato sauce.
+</p><br>
+
+<p>Pork Caldereta is a Filipino tomato based stew. It is composed of cubed pork,
+potato, carrots, tomato sauce,and  liver spread.<br> There are also regions in the 
+Philippines that makes use of peanut butter.
+</p> <br>
+
+ 
+ <p>One of the great things about food is its ever-evolving nature, and how it usually
+ adjusts to the place where it is eaten.<br> As such, did you know that our favorite
+ Caldereta is actually a local adaptation of a Spanish dish? But like many of<br> the
+ recipes we’ve grown to love and adopt in our cuisine, this dish has faced many
+ adjustments. And not only is it fitted<br> to our local palate, but it’s also used 
+ ingredients more accessible to us, hence the birth of Pork Caldereta.<br><br>
+ </p>
+ 
+ <h4>But first, let’s break down the roots of this flavorful
+ dish:</h4>
+ 
+<p>As mentioned earlier, Caldereta comes from a Spanish recipe with the same name.
+The Spanish Caldereta comes from<br> the Castile and León region of the country. This
+dish features lamb as the primary meat ingredient. But you can still see<br> clear 
+similarities in our rendition and theirs. Both utilize some savory liver to add a pinch
+of distinctive flavor to the dish.
+
+<br>And of course, with the name of the dish in mind, both involve the mixing of a
+delightful variety of components to make some<br> thick stew in a pot. Caldereta 
+means “cauldron” or “cooking pot” in Spanish. And with the Spanish colonization 
+in the Philippines<br> beginning in the 1520s, they brought over multiple dishes we
+now cook. But we’ve also altered some of them to our taste and<br> available
+ingredients.<br><br>
+
+The result? It is nothing less than the most delectable and rich orange stew made
+with onions, potatoes, liver, and of course, your<br> meat of choice. You serve the
+classic version of Caldereta is with goat, but beef is another famous alternative. But 
+another meat you<br> definitely should try as well with this mix of ingredients is pork. 
+After all, it has a less strong taste that takes well to the added flavors of<br> tomato
+sauce, olives and onions!
+</p>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+
+<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork">2 lbs. Pork (sliced into cubes)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Knorr Pork" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Knorr Pork">1 piece Knorr Pork cube</label>
+        </div>
+		<div class="checkbox">
+          <input name="Tomato Sauce" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Tomato Sauce">8 oz. tomato sauce</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Olives" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Green Olives">¾ cup green olives</label>
+        </div>
+		<div class="checkbox">
+          <input name="Red Bell Pepper" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Red Bell Pepper">1 piece red bell pepper sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Bell Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Green Bell Pepper">1 piece green bell pepper sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Potatoes" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Potatoes">2 pieces potatoes cubed</label>
+        </div>
+		<div class="checkbox">
+          <input name="Carrot" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Carrot">2 pieces carrot sliced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Onion">1 piece onion chopped</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Garlic">3 cloves garlic chopped</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Water">1 1/2 cups water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Liver" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Liver">½ cup liver spread</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cooking Oil" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Cooking Oil">3 tablespoons cooking oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Salt & Black Pepper" class="strikethrough" value="ingredient11" type="checkbox">
+          <label for="Salt & Black Pepper">Salt and ground black pepper to taste</label>
+        </div>
+	</div>
+</div> 
+</div>
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li> Pour 3 tablespoons of cooking oil into a cooking pot to begin making this meaty
+stew. Wait for your oil to heat up. Then you can go ahead and add in your 3 cloves
+of chopped garlic, and 1 chopped onion. Sauté these together nicely.
+</li><br>
+ 				<li>Afterwards, you can put your 2 lbs. of pork that have been cut up into cubes in
+your pot. Also sauté this until you get a beautiful light brown color from the meat.
+That would be your sign to add 8 oz. of tomato sauce, as well as 1 ½ cups of
+water. Wait for this to boil, and then cover the pot. Let the mixture cook while your
+fire is in low heat for 60 minutes.</li><br>
+ 				<li>And for that unmistakable Caldereta flavor, we’ll be putting ½ cup of liver spread
+in the pot. Make sure to stir your pot afterwards to distribute the liver spread well,
+and cook this for 3 minutes. Let’s also add our 2 potatoes that we’ve cut into
+cubes, as well as 2 carrots we’ve sliced for that deliciously crunchy vegetable
+ingredient. Now you have to put the cover on, and wait for this to cook for about
+8 to 10 minutes.</li><br>
+ 				<li>We’ll be integrating a couple more ingredients with our ¾ cup of green olives, as
+well as 1 medium red bell pepper and 1 green bell pepper, which we’ve sliced.
+Also let this cook, but only for 5 minutes. And for our final touch, simply season
+with a bit of salt and ground black pepper to your preference.</li>
+<br>
+		<li>All that’s left is making sure you turn the heat off, then placing this lovely
+Caldereta in your dish of choice. You’re sure to impress guests with this tasty
+combination of savory flavors!</li>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

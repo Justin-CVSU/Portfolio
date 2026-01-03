@@ -1,0 +1,227 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Focaccia Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(focaccia1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(focaccia2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #d08752;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Focaccia</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Focaccia</h3>
+<p>Focaccia is a flat leavened oven-baked Italian bread, similar in style and texture to pizza; in some places, it is called pizza bianca. Focaccia can be served as a side dish or as sandwich bread and it can be round, rectangular, or square shape.</p><br>
+<p>The name focaccia derives from the Roman “panis focacius,” meaning “hearth bread”, referring to the fact that focaccia was traditionally baked in coals in Roman times. Its recipe back then consisted of rough flour, olive oil, water, a very small quantity of yeast, and salt, and was probably quite plain. It was used as a dipping bread, usually torn apart by hand and dipped into salty soups made from water, vinegar, and possibly olive oil (essentially what you get served at most Italian restaurants as you wait for your meal these days, minus the water component of course). 
+
+As the Romans began expanding their empire  to France and Spain, they brought focaccia with them,  spreading its popularity across continental Europe. The bread was mostly a poor man's meal, baked to feed sleeves and country peasants -- the Spanish pan de hogaza, a version of focaccia, originated that way, as did fugasse, in the French regions of Burgundy, Provence and Languedoc. 
+
+Once people started baking it, focaccia simply went on to become part of their cuisines and gastronomic traditions. In the early 20th century, when a number of European immigrants left for South America and the US, they took their focaccia recipes with them, keeping the bread alive and strong. 
+
+They got more experimental with their toppings, too: Today, savory versions of focaccia are topped with rosemary, sage, garlic, cheese, and onions, while sweet varieties can be topped with honey, raisins, sugar, and lemon peel, among others.</p><br>
+<p></p><br>
+<p></p><br>
+<p></p><br>
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingridients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">1/2 cup (120 ml) extra-virgin olive oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">2 garlic cloves, finely minced</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">1 tablespoon chopped fresh thyme or 1 teaspoon dried</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1 tablespoon chopped fresh rosemary or 1 teaspoon dried</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">1/4 teaspoon fresh ground black pepper</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">1 cup (235 ml) warm water</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">2 1/4 teaspoons active dry yeast (1 packet)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">1/4 teaspoon honey or maple syrup</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">2 1/2 cups (325 grams) all-purpose flour</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1/2 teaspoon fine sea salt</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+<li>In a cold medium skillet, combine olive oil, minced garlic, thyme, rosemary, and black pepper. Place the pan over low heat and cook, stirring occasionally, 5 to 10 minutes or until aromatic, but before the garlic browns. Set aside and allow to cool.</li><br>
+<li>In a large bowl, combine the warm water, yeast, and honey. Stir a few times then let sit for 5 minutes.</li><br>
+<li>Stir in the remaining 1 ½ cups of flour and salt. When the dough comes together, transfer to a floured board and knead 10 to 15 times until smooth.</li><br>
+<li>Transfer the dough to a large oiled bowl, cover with a warm, damp towel and let rise for 1 hour. (It’s best to let the dough rise in a warmer area of your kitchen).</li><br>
+<li>Bake Bread</li><br>
+<li>After 1 hour, heat the oven to 450 degrees Fahrenheit.</li><br>
+<li>Use two tablespoons of the remaining garlic-olive oil mixture to oil a 9-inch by 13-inch rimmed baking sheet. (See above if you do not have this pan size).</li><br>
+<li>Transfer the dough to the baking sheet then press it down into the pan. Use your fingers to dimple the dough then drizzle the top with the remaining 2 tablespoons of the garlic olive oil mixture. Let the dough rise for 20 minutes until it puffs slightly.</li><br>
+<li>Bake until golden brown, 15 to 20 minutes. Cool baked focaccia bread on a wire rack.</li><br>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

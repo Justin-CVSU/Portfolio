@@ -1,0 +1,249 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Bicol Express Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(bicol1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(bicol2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #c8b5aa;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Bicol Express</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Bicol Express</h3>
+
+<p>Bicol Express, known natively in Bikol as sinilihan, is a 
+popular Filipino dish which<br> was popularized in the 
+district of Malate, Manila but made in traditional Bicolano style.
+</p>
+<p>The mild sweetness of coconut milk brings a sense of delight to the sharp notes of<br> 
+chili pepper and bagoong in the classic Bicol Express recipe. This contrast has long<br>
+created a spell-binding richness in taste for the dish. And this has helped make it<br> 
+arguably one of the most popular Filipino dishes.
+</p><br><br>
+ 
+<p>And righteously,as it has all of the well-meaning components of classic savory<br> 
+Philippine cuisine. Not only does it contain a generous amount of meat in some<br> 
+succulent, juicy pork belly, but it is also enriched by a local favorite to season and<br> 
+bring some unique flavor to the dish– shrimp paste or bagoong.<br><br>
+
+Bicol Express, in all of its well-balanced spice and sweetness, also makes for an<br> 
+irresistible cold day meal. With a creamy, delicious stew containing ginger, and a<br> 
+generous amount of essential seasonings in salt and pepper, the flavors come<br> 
+together for the most comforting spoonful of meat and soup.
+</p><br><br>
+
+<p>But the advantages of having a hot and spicy bowl of Bicol Express does not stop<br> 
+at its mouthwatering, meaty taste. It also contains some ingredients that are great<br> 
+for your body! 
+</p><br><br>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<p>For up to 4 people</p>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Pork Belly" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Pork Belly">2 lbs. pork belly (sliced into strips)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Coconut milk">2 cups coconut milk</label>
+        </div>
+		<div class="checkbox">
+          <input name="Coconut Cream" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Coconut Cream">2 cups coconut cream</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bagoong" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bagoong">1/2 cup shrimp paste (bagoong alamang)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Garlic" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Garlic">4 cloves garlic (crushed)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chili Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Chili Pepper">6 pieces Thai chili pepper (chopped)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ginger" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Ginger">1 thumb ginger (minced)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Onion">1 piece onion (chopped)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Serrano Pepper" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Serrano Pepper">1 pieces Serrano pepper (sliced)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient10" type="checkbox">
+          <label for="Water">1 cup water (optional)</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li> Start by taking out
+your pan. Proceed by combining minced ginger, crushed garlic, chopped onion,
+sliced pork, chopped chili pepper, and coconut milk. Mix everything together
+</li><br>
+ 				<li>Once the mixture boils, you may add a cup of coconut cream and half of the
+bagoong alamang.<br>
+Let the mixture cook using low heat until it reduces to a quarter.</li><br>
+
+ 				<li>Afterwards, we will add the rest of the coconut cream and adjust the flavor by<br>
+					adding more bagoong if necessary. Also add the Serrano peppers or long green pepper.<br> 
+					Continue cooking in low heat until the sauce thickens.</li><br>
+					
+ 				<li>Make sure to serve this nice and hot, and you now have enough Bicol Express for 6!<br> 
+					Also try
+serving it the traditional manner– with some steaming, white rice.</li>
+		</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

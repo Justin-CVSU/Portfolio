@@ -1,0 +1,397 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Sushi Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(sushi1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(sushi2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #D3D3D3;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Sushi</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	</div>
+	
+	<h2>History</h2>
+<h3>What is Sushi</h3>
+<p>
+Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanied by a variety of ingredients,<br> 
+such as seafood—often raw—and vegetables. Styles of sushi and its presentation vary widely, but the one key ingredient is "sushi rice",<br> also referred to as shari, or sumeshi.
+</p><br>
+
+<h3>What is Futomaki (Maki Sushi)?</h3>
+
+<p><strong>Futomaki</strong> (太巻き) is the most classic sushi roll in Japan. Therefore, when you say <strong>Maki Sushi*</strong>(巻き寿司) or sushi roll, it implies Futomaki.<br><br>
+ 
+Here are some of the unique characteristics of Futomaki:
+</p>
+
+<ol>
+<li>The diameter is about 2 to 2.5 inches (5-6 cm) thick.</li>
+
+<li>It incorporates a mix of fresh and dried ingredients common in the Japanese pantry.</li>
+
+<li>The typical filling consists of a variety of vegetables, and sometimes with the addition of cooked fish like unagi (freshwater eel) or anago (saltwater eel).</li>
+
+<li>It can be prepared ahead of time.</li>
+</ol>
+
+<p>With its attractive look, Futomaki is a popular sushi roll to make for festivity events,<br> 
+holidays, potluck, or bento.<br><br>
+
+<strong>*Note:</strong> The word “Maki Sushi” is often used in the Osaka area. In the Tokyo area, sushi roll is called <strong>Nori Maki</strong> (海苔巻き).<br> 
+It is then further divided into <strong>Futomaki</strong> (太巻き), <strong>Chumaki</strong>(中巻き), <strong>Hosomaki</strong> (細巻き) based on the size of the rolls.
+</p><br>
+
+<h3>What's Inside Futomaki (Maki Sushi)</h3>
+
+<p>Each family chooses different fillings for futomaki. Some people use 5 ingredients and<br> 
+some include more than 10. It really depends on the family. And that is what makes<br> 
+Futomaki such fun sushi to share!<br><br>
+
+The most common ingredients include cucumber, seasoned kanpyo (gourd strips), shiitake<br> 
+mushrooms, and tamagoyaki (Japanese rolled omelette).<br><br>
+
+These rolls include:
+</p>
+
+<ol>
+<li>Tamagoyaki / Dashimaki Tamago</li>
+<li>Simmered Kanpyo (gourd strips)</li>
+<li>Simmered Shiitake Mushrooms</li>
+<li>Mitsuba or Spinach</li>
+<li>Cucumber</li>
+<li>Cooked unagi (freshwater eel) or anago (saltwater eel)</li>
+<li>Sakura Denbu (Seasoned Codfish Flakes)</li>
+</ol>
+
+<p>Other ingredients include kamaboko fish cakes (or imitation crab), koyadofu (freeze-dry<br> 
+tofu), shiso leaves, pickled ginger, carrots, tuna (sashimi), and salmon (sashimi).<br><br>
+
+It is understandable that some of these ingredients are hard to find in your local Asian grocery stores.<br> 
+You will have better luck finding the products in Japanese grocery stores.<br><br>
+
+But remember, you can make futomaki with anything that you really like! Just keep in mind that the flavors should balance each other,<br> 
+and not have any single ingredient overpowering the rest.
+</p>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Ramen Noodles" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Ramen Noodles">2 servings fresh ramen noodles (10–12 oz, 283–<br>
+		  340 g fresh noodles for 2 servings; 6.3 oz, 180 g dry<br> 
+		  ramen noodles; for gluten-free, use GF ramen<br> 
+		  noodles)</label>
+        </div>
+
+<h3>For the Futomaki Fillings</h3>
+
+		<div class="checkbox">
+          <input name="Mushroom & Gourd" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Mushroom & Gourd">Seasoned shiitake & kanpyo</label>
+        </div>
+		<div class="checkbox">
+          <input name="Omelette" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Omelette">Tamagoyaki (Japanese Rolled Omelette)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Sesame Oil" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Sesame Oil">A handful mitsuba (Japanese parsley) (or spinach)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Eel Fillet" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Eel Fillet">1 unagi (freshwater eel) fillet (broiled)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cucumbers" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Cucumbers">1 Japanese or Persian cucumbers</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cod Fish Flakes" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Cod Fish Flakes">1 package sakura denbu (seasoned cod fish flakes) (1.4 oz, 40 g)</label>
+        </div>
+	</div>
+
+
+<h3>For Seasoned Shiitake & Kanpyo</h3>
+		<div class="checkbox">
+          <input name="Shiitake Mushrooms" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Shiitake Mushrooms">8 dried shiitake mushrooms</label>
+        </div>
+		<div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Water">1 cup water (for soaking)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Gourd Strips" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Gourd Strips">0.4 oz dried kanpyo (gourd strips)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Bamboo Shoots" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Bamboo Shoots">1 tsp Diamond Crystal kosher salt (for kanpyo)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Sugar" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Sugar">1 Tbsp sugar</label>
+        </div>
+		<div class="checkbox">
+          <input name="Green Onions" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Green Onions">Shiraga Negi (julienned long green onions)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Sweet Rice Wine" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Sweet Rice Wine">1 Tbsp mirin</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Soy Sauce">1 Tbsp soy sauce</label>
+        </div>
+
+
+<h3>For Wrapping Sushi Rolls</h3>
+
+        <div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Water">¼ cup water (for Tezu, finger dipping water)</label>
+        </div>
+        <div class="checkbox">
+          <input name="Rice Vinegar" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Rice Vinegar">2 tsp rice vinegar (unseasoned) (for Tezu, finger dipping water)</label>
+        </div>
+        <div class="checkbox">
+          <input name="Laver Seaweed" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Laver Seaweed">4 sheets nori (dried laver seaweed)</label>
+        </div>
+        <div class="checkbox">
+          <input name="Water" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Water">sushi ginger (gari) (optional)</label>
+        </div>
+ </div>
+
+		</div>
+		<div class="text-card">
+			<h2>Process</h2>
+				<ol>
+ 				<li> Before You Start: You must use Japanese short-grain rice or your sushi will fall apart.
+Please note that ¾ US measuring cup of uncooked Japanese rice is 1 rice cooker cup (150 g, 5.3
+oz) and yields roughly 1¾ US cups (330 g, 11.6 oz) of cooked rice. One sushi roll requires
+½–¾ US cup (90-135 g) of sushi rice.</li><br>
+ 				<li>Measure the Rice: Overfill a ¾ US cup measure or plastic rice cooker cup with uncooked
+short-grain rice and level it off. Put the rice in a large bowl. Repeat until you have the
+amount of measured rice needed.</li><br>
+ 				<li>Gather all the ingredients.</li><br>
+</0l> 				
+<br>
+
+<h2>To Wash and Cook the Rice</h2><br>
+
+<li>Quick Rinse: Add just enough water to submerge all the rice. Then, discard the
+water immediately. Repeat one more time. Tip: Rice absorbs water very quickly when you
+start rinsing, so this step helps remove impurities from the rice and prevent it from
+absorbing the first few rounds of milky water.
+</li><br>
+
+<li>Wash: Next, use your fingers to gently agitate the wet rice grains in a circular motion for 10-
+15 seconds. Using very little water allows the grains to rub against each other. It also reduces
+the absorption of impurities from the milky water.</li><br>
+
+<li>Rinse: Add water and immediately discard the cloudy water. Repeat one more time.
+Repeat Wash and Rinse two more times.</li><br>
+
+<li>Drain: When the water is almost clear, drain the rice very well. Tip: Use a fine-mesh sieve to
+drain and shake off any excess water.</li><br>
+
+<li>Check the kombu to see if there are any dirt particles. If needed, gently wipe it off with a
+damp cloth (it‘s a traditional method but these days kombu is pretty clean). Do not wipe off
+the white powdery substance, which contributes to the umami flavor. NEVER wash the
+kombu!</li><br>
+
+<li>Soak and Cook: Put the well-drained rice in the rice cooker bowl and add the<br> 
+	measured water to just under the 3-cup line (for 2¼ US cups of uncooked rice) for White Rice.<br> 
+	If your rice cooker has a Sushi Rice mode, add water up to that line. Place the kombu on top of the rice<br> 
+	and let the rice soak in the water for 20–30 minutes. Then, start cooking. If you don‘t have a rice cooker,<br> 
+	cook the rice in a pot over the stove, Instant Pot, or donabe with the amount of water I specified in this recipe.<br> 
+	Tip: Since we‘ll be adding sushi vinegar to the steamed rice, cook the rice a little bit on the firm side.<br> 
+	To achieve this, use a rice-to-water ratio of 1 to 1 for sushi rice (instead of 1 to 1.1 or 1 to 1.2 for regular steamed rice).</li><br>
+
+<h2>To Make the Homemade Sushi Vinegar (Optional)</h2><br>
+<ol>
+<li>If you are not using a store-bought bottle of sushi vinegar (seasoned rice vinegar), follow
+this step. Combine the rice vinegar, sugar, and salt in a small saucepan and bring it to a boil
+over medium-high heat. Whisk until the sugar is completely dissolved. You can also put the
+ingredients in a microwave-safe bowl and microwave for 1 minute, or until the sugar is
+dissolved. Set aside to let it cool.</li><br>
+
+<li>If using a wooden sushi oke (also called hangiri), moisten it by running water over it and
+drain well. You can also use a baking sheet lined with parchment paper. When the rice is
+cooked, discard the used kombu (or repurpose it to make simmered kombu) and transfer
+the cooked rice into the sushi oke. Spread out the rice evenly so it will cool faster. While it’s
+hot, pour the sushi vinegar over the rice. Tip: You can still use this same amount of sushi
+vinegar whether you are making a bit more or less sushi rice. Take note that we add roughly
+8-10% of the cooked rice weight in sushi vinegar.</li><br>
+
+<li>With a rice paddle, gently “slice” the rice at a 45-degree angle to incorporate the sushi vinegar mixture and<br> 
+	separate the chunks of rice. Do not stir or mix the rice because the grains may break and the rice will become mushy. 
+	While using this slicing motion, vigorously fan the rice with a paddle fan or another type of fan.<br> 
+	This cools the rice and takes away the excess moisture. Fanning makes the rice shine and keeps it from becoming mushy.</li><br>
+
+<li>Then, gently flip the rice in between slices. Repeat this process until the rice is cooled to the
+temperature of human skin.</li><br>
+</ol>
+
+<h2>To Keep</h2><br>
+<ol>
+<li>Keep the sushi rice covered with a damp towel (or paper towel) for a few hours at room
+temperature. To keep it for a longer time, see below.</li><br>
+</ol>
+
+<h2>To Store</h2><br>
+<ol>
+<li>Rice gets hard and dry in the refrigerator. My recommendation is to put the sushi rice in an
+airtight container and store it in the freezer for up to a month. You can defrost it overnight in
+the fridge, and then microwave to room temperature (not hot). If you really want to
+refrigerate it, cover the container with a thick kitchen towel, so the rice will stay cool but not
+become cold.</li><br>
+</ol>
+			</div>
+		</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>

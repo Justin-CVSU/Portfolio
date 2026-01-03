@@ -1,0 +1,326 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Omurice Recipe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+ol > li::marker {
+  	font-weight: bold;
+}
+
+.strikethrough:checked + label {
+  	text-decoration:line-through
+}
+body{
+	background: #1D212B;
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section:nth-child(1){
+	background:url(omurice1.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(2) {
+	color: #1D212B;
+	background: #fff;
+}
+section:nth-child(3) {
+	color: #fff;
+	background:url(omurice3.webp);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-shadow: 5px 5px 5px black;
+}
+section:nth-child(4) {
+	background: #fff;
+	
+}
+section .cards {
+display: flex;
+}
+section .cards .text-card{
+background: #2696E9;
+margin: 20px;
+padding: 20px;
+}
+section .container{
+	margin: 100px;
+}
+section h1{
+	font-size: 60px;
+}
+section h2{
+	font-size: 40pxl
+	text-align: center;
+	text-transform: uppercase;
+}
+section .card{
+	display: flex;
+}
+section .cards .text-card{
+	background: #FFBF00;
+	border-radius: 25px;
+	margin: 20px;
+	padding: 50px;
+	border: solid;
+}
+section .cards .text-card h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+@media (max-width: 900px) {
+	section h1{
+		font-size: 40px;
+	}
+	section .cards {
+		flex-direction: column;
+	}
+}
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.reveal.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+</style>
+<body>
+	<section>
+	<h1>History of Omurice</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<div class="cards">
+	<h2>History</h2>
+	</div>
+
+<h3>What is Omurice</h3>
+
+<p>Omurice or omu-rice is a Japanese dish consisting of 
+an omelette made with fried rice and thin, fried 
+scrambled eggs, usually topped with ketchup. It is a 
+popular dish also commonly cooked at home. Children 
+in particular enjoy omurice. It is often featured in 
+Japan's version of a children's meal, okosama-ranchi.
+</p>
+
+<p>Omurice (オムライス) or Japanese Omelette Rice—is a beloved hybrid invention
+that it’s considered everyone’s favorite childhood dish in Japan. Here, we have fried rice
+and fluffy omelette come together to make one comforting food that live fondly in our hearts.
+</p>
+
+
+<h2>Why You’ll Love This Omurice Recipe?</h2>
+
+<ul>
+<li><strong>Quick and easy</strong> — You’ll need only 20 minutes to make the dish.</li>
+
+<li><strong>Leftovers and pantry-friendly</strong> — Japanese home cooks likes making it using leftover 
+rice as it makes a perfect single-plate meal to prepare the next day. For the rest of the
+ingredients, you’ll need just the usual staples in the pantry: eggs, frozen mix veggies or
+any basic veggies, and a choice of protein (chicken, ham, bacon, or tofu).
+</li>
+
+<li><strong>Hearty and satisfying</strong> — It has protein, veggies, and rice, and packed with flavors. My 
+children absolutely loved it when they were little.
+</li>
+</ul>
+
+<p>The soft-cooked omelette and the sweet and tangy rice complement each other very well,
+so I hope you will enjoy this recipe!
+</p>
+<h2>What is Omurice?</h2>
+
+<p>Omurice (pronounced as o-muraisu in Japanese) is a contemporary Japanese fusion 
+creation that marries both Western omelette and Japanese fried rice. As you can tell, the
+word “omurice” comes from Japanese portmanteau for omelette (omelet) and rice, 
+resulting in the name omelette rice or omelet rice.
+
+The rice is pan-fried with ketchup and chicken, then wrapped in a thin sheet of egg 
+omelette which gives the dish a signature oval shape.
+
+This classic yōshoku (western-style Japanese food) is a staple home cooked dish but you
+can also find it at many Western food diners in Japan.
+</p>
+
+</div>
+</section>
+	<section>
+	<h1>Procedure</h1>
+	</section>
+	<section>
+	<div class="container reveal">
+	<h2>Steps in Cooking</h2>
+	<div class="cards">
+		<div class="text-card">
+		<h3>Ingredients</h3>
+			<div class="form-group ">
+    <div class="col-md-5">
+		<div class="checkbox">
+          <input name="Onion" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Onion">½ onion</label>
+        </div>
+		<div class="checkbox">
+          <input name="Chicken Thigh" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Chicken Thigh">1 boneless, skinless chicken thigh</label>
+        </div>
+		<div class="checkbox">
+          <input name="Olive Oil" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Olive Oil">1 Tbsp extra virgin olive oil</label>
+        </div>
+		<div class="checkbox">
+          <input name="Veggies" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Veggies">½ cup frozen mixed vegetables (defrosted)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Kosher Salt" class="strikethrough" value="ingredient5" type="checkbox">
+          <label for="Kosher Salt">⅛ tsp Diamond Crystal kosher salt</label>
+        </div>
+		<div class="checkbox">
+          <input name="Black Pepper" class="strikethrough" value="ingredient6" type="checkbox">
+          <label for="Black Pepper">⅛ tsp freshly ground black pepper</label>
+        </div>
+		<div class="checkbox">
+          <input name="Japanese Rice" class="strikethrough" value="ingredient7" type="checkbox">
+          <label for="Japanese Rice">2 servings cooked Japanese short-grain rice<br> 
+		  (1¾ US cups or 330 g; cooled; day-old rice, preferably)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Ketchup" class="strikethrough" value="ingredient8" type="checkbox">
+          <label for="Ketchup">1 Tbsp ketchup (plus more for garnish)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Soy Sauce" class="strikethrough" value="ingredient9" type="checkbox">
+          <label for="Soy Sauce">1 tsp soy sauce</label>
+        </div>
+	<h3>For the Omelettes</h3>
+		<div class="checkbox">
+          <input name="Eggs" class="strikethrough" value="ingredient1" type="checkbox">
+          <label for="Eggs">2 large eggs (50 g each w/o shell) (divided)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Milk" class="strikethrough" value="ingredient2" type="checkbox">
+          <label for="Milk">2 Tbsp milk (divided)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Olive Oil" class="strikethrough" value="ingredient3" type="checkbox">
+          <label for="Olive Oil">2 Tbsp extra virgin olive oil (divided)</label>
+        </div>
+		<div class="checkbox">
+          <input name="Cheddar Cheese" class="strikethrough" value="ingredient4" type="checkbox">
+          <label for="Cheddar Cheese">6 Tbsp shredded sharp cheddar cheese (or any other kind)</label>
+        </div>
+	</div>
+</div> 
+		</div>
+		<div class="text-card">
+			<h2>Process</h2><br>
+				<ol>
+ 				<li>Before You Start: Day-old rice works best for fried rice. Bring the refrigerated day-old rice or frozen rice<br> 
+					to room temperature. If you don‘t have day-old rice, you can cook 1 rice cooker cup (¾ US cup, 180 ml)<br> 
+					of short-grain rice; spread out the hot rice on a baking sheet to cool completely. See how to cook<br> 
+					Japanese rice with a rice cooker, pot over the stove, Instant Pot, or donabe).</li><br>
+
+ 				<li>Gather all the ingredients.</li><br>
+				</ol>	
+
+<h2>To Make the Ketchup Fried Rice</h2><br>
+<ol>
+<li>Mince ½ onion finely into ⅛-inch (3-mm) pieces.</li><br>
+
+<li>Dice 1 boneless, skinless chicken thigh into ½-inch (1.3-cm) pieces.</li><br>
+
+<li>Heat 1 Tbsp extra virgin olive oil in a large frying pan over medium heat and sauté
+the onions until tender.</li><br>
+
+<li>Add the chicken and cook until it's no longer pink.</li><br>
+
+<li>Add ½ cup frozen mixed vegetables (defrosted) and season with ⅛ tsp Diamond Crystal kosher salt<br> 
+	and ⅛ tsp freshly ground black pepper.</li><br>
+
+<li>Add 2 servings cooked Japanese short-grain rice. Use a cutting motion with your spatula
+to break the clumps into small pieces.</li><br>
+
+<li>Add 1 Tbsp ketchup and 1 tsp soy sauce and stir to combine. Transfer the fried rice to a plate<br> 
+	and wash the pan.</li>
+</ol>
+<br>
+
+<h2>To Make the Omurice</h2><br>
+<ol>
+<li>We‘ll make the omurice one at a time. Whisk 1 egg and 1 Tbsp milk in a small bowl.</li><br>
+
+<li>Heat 1 Tbsp oil in the pan over medium-high heat. Distribute the oil to make sure the
+surface of the pan is coated well.</li><br>
+
+<li>When the pan is hot, pour in the egg mixture and tilt the pan to coat the entire surface with the egg.<br> 
+Cook the egg until the bottom has set but the top is still soft. Lower the heat to medium low.</li><br>
+
+<li>Sprinkle 3 Tbsp shredded cheese on top, then add 1 serving of ketchup fried rice<br> 
+	across the middle of the omelette.</li><br>
+
+<li>Use the spatula to fold both sides of the omelette over the middle to cover the fried rice.<br>
+Carefully move the omurice to the edge of the pan.</li><br>
+
+<li>Holding a plate in one hand and the pan in the other, flip the pan to transfer the omurice,
+seam side down, onto the plate.</li><br>
+
+<li>While it’s still hot, cover the omurice with a paper towel and form it with your hands into an
+elongated oval shape (similar to an American football or rugby ball). Repeat this process to
+make the next omurice.</li>
+</ol>
+<br>
+
+<h2>To Serve</h2><br>
+<ol>
+<li>Drizzle additional ketchup in a zigzag pattern on top for decoration and enjoy.</li>
+</ol>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+	window.addEventListener('scroll', reveal);
+
+	function reveal(){
+		var reveals = document.querySelectorAll('.reveal');
+
+	for(var i = 0; i < reveals.length; i++) {
+
+		var windowheight = window.innerHeight;
+		var revealtop = reveals[i].getBoundingClientRect().top;
+		var revealpoint = 150;
+
+	if(revealtop < windowheight - revealpoint) {
+		reveals[i].classList.add('active');
+	}
+	else{
+		reveals[i].classList.remove('active');
+	}
+}
+}
+</script>
+</body>
+</body>
+</html>
