@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="image/5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLVCKLIST MOVIE HUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c;
+    }
+
+    .navbar-nav .nav-link {
+    font-weight: normal; /* Set font weight to normal */
+    font-size: 10px; /* Adjust font size if needed */
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+
+
+
+    /* Modal Styles */
+    .modal-right .modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 50%;
+    width: 300px; /* Adjust width as needed */
+    max-width: 100%;
+    padding-right: 3%;
+    }
+
+    .modal-right .modal-content {
+    background-color: #1A1A1A; /* Deep black background */
+    color: #FFFFFF; /* White text */
+    height: 100%;
+    border-radius: 0; /* No rounded corners */
+    border: none;
+    }
+
+    .modal-right .modal-header,
+    .modal-right .modal-footer {
+    border: none; /* Remove borders */
+    }
+
+    /* Close button in the modal */
+    .modal-right .modal-header .btn-close {
+    display: none; /* Hide the close button */
+    }
+
+    /* Hide the backdrop */
+    .modal-backdrop.show {
+    opacity: 0;
+    }
+
+    /* Customized Button */
+    #agreeButton {
+    background-color: #FF6A00; /* Vibrant Orange */
+    border-color: #FF6A00; /* Orange border */
+    color: #FFFFFF; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    display: block; /* Ensure it's block-level for centering */
+    margin: 0 auto; /* Center horizontally */
+    }
+
+    /* Hover and Active States */
+    #agreeButton:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    #agreeButton:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* For clicked state */
+    #agreeButton.clicked {
+    background-color: #F0C5A4 !important; /* Light orange for clicked state */
+    border-color: #000000 !important; /* Black border for clicked state */
+    }
+
+        /* Video container with fixed height */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Style the video to cover the container */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container while maintaining aspect ratio */
+            display: block;
+        }
+
+        /* Style the Play Now button to match .btn-custom */
+    .play-now-button {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Match transitions */
+    z-index: 2;
+    }
+
+    /* Hover state */
+    .play-now-button:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .play-now-button:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+        /* Video overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start (left side) */
+            padding: 20px; /* Add padding to the overlay */
+            box-sizing: border-box;
+            color: white; /* White text color */
+        }
+
+        /* Style for overlay text */
+        .video-overlay h3 {
+            margin-bottom: 20px;
+            font-size: 2rem; /* Adjust font size as needed */
+        }
+        .modal-content {
+            background-color: #FF6A00; /* Set the background color to #f2a65a */
+            color: black; /* Set text color to white for better contrast */
+        }
+
+        .modal-header, .modal-footer {
+            border: none; /* Remove borders if desired */
+        }
+
+        .modal-header .btn-close {
+            color: #000000;
+
+        }
+
+    /* Pricing Section */
+    .price-list-section {
+        padding: 10px;
+        background-color: #1c1c1c;
+        text-align: center;
+    }
+
+    .price-list-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #FF6A00;
+    }
+
+    .price-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .price-card {
+        background-color: #2a2a2a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        color: #c5baaa;
+        transition: transform 0.3s ease;
+        text-align: left;
+    }
+
+    .price-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .price-card .price {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #FF6A00;
+    }
+
+    .price-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .price-card ul li {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .select-plan-btn {
+        background-color: #FF6A00;
+        color: #1c1c1c;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 9px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .select-plan-btn:hover {
+        background-color: #ffffff;
+    }
+
+    .price-card:hover {
+        transform: scale(1.05);
+    }
+
+    #subscriptionModal .modal-dialog {
+    width: 100%; /* Slightly narrower width */
+    max-width: 1000px; /* Max width to control the layout */
+    margin: auto; /* Center the modal */
+    height: auto; /* Let height adjust based on content */
+    }
+
+    #subscriptionModal .modal-content {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal arrangement */
+    flex-wrap: wrap; /* Allow content to wrap if necessary */
+    justify-content: center; /* Center the items horizontally */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px; /* Add padding */  
+    background-color: #1A1A1A; /* Background color */
+    color: #FFFFFF; /* Text color */
+    }
+
+    /* Subscription prompt button */
+    .subscription-prompt button {
+    background-color: #806D61; /* Craft color */
+    color: #FFFFFF; /* White text for contrast */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Slightly larger padding for better touch target */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+
+    /* Hover state */
+    .subscription-prompt button:hover {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* Keep text white */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .subscription-prompt button:active {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* Fit content for buttons with outline-danger class */
+    .btn-outline-danger {
+    max-width: fit-content;
+    }
+
+
+    /* Button default style */
+    .btn-custom {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; 
+    }
+
+
+
+
+
+
+    /* Button hover style */
+    .btn-custom:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Button active style */
+    .btn-custom:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+
+    #contact {
+    background-color: #2F2F2F; /* Light grey/darker background */
+    color: #FFFFFF; /* White text */
+    padding: 40px 0; /* Add padding for better spacing */
+    }
+
+    /* Contact section buttons */
+    .btn-outline-primary {
+    border-color: #FF6A00; /* Orange border */
+    color: #FF6A00; /* Orange text */
+    }
+
+    .btn-outline-primary:hover {
+    background-color: #FF6A00; /* Orange background on hover */
+    color: #FFFFFF; /* White text on hover */
+    }
+
+
+
+
+    .footer {
+    background-color: #1a1a1a; /* dark grey */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    }
+
+    .footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 18px;
+    text-decoration: none;
+    }
+
+    .footer .social-icons a:hover {
+    color: #aaaaaa; /* lighter grey on hover */
+    }
+
+    .footer-links {
+    margin: 20px 0;
+    }
+
+    .footer-links a {
+    color: #ffffff;
+    margin: 0 5px;
+    text-decoration: none;
+    }
+
+    .footer-links a:hover {
+    text-decoration: underline;
+    }
+
+    .footer a {
+    color: #ffffff;
+    }
+
+    .footer a:hover {
+    color: #bbbbbb; /* lighter grey on hover */
+    }
+
+    .footer .footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    }
+
+    /* Basic resets */
+    body, h1, h2, h3, p, ul, li {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #121212;
+    }
+
+    h1, h2 {
+        margin-top: 2%;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    p {
+        margin-top: 2%;
+        text-align: center;
+        font-weight: normal;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: normal;
+    }
+
+    ul {
+        list-style: none;
+    }
+    .animations-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .animations-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .animations-logo:hover {
+        box-shadow: 0 0 20px #cc9d7d;
+        transform: scale(1.1);
+    }
+    
+    .constantine-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .constantine-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: ;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .constantine-logo:hover {
+        box-shadow: 0 0 20px #423e26;
+        transform: scale(1.1);
+    }
+
+    .john-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .john-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .john-logo:hover {
+        box-shadow: 0 0 20px #f3df42;
+        transform: scale(1.1);
+    }
+
+    .lamp-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .lamp-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .lamp-logo:hover {
+        box-shadow: 0 0 20px #e6d5a8;
+        transform: scale(1.1);
+    }
+
+    .dreamer-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .dreamer-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .dreamer-logo:hover {
+        box-shadow: 0 0 20px #ada7a5;
+        transform: scale(1.1);
+    }
+
+    .miles-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .miles-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .miles-logo:hover {
+        box-shadow: 0 0 20px #c83033;
+        transform: scale(1.1);
+    }
+
+    .trio-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically (if container has height) */
+        height: 250px;           /* Set a height if needed */
+        margin: 0 100px;
+    }
+    
+    /* Style for the logo */
+    .trio-logo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .trio-logo:hover {
+        box-shadow: 0 0 20px #d59054;
+        transform: scale(1.1);
+    }
+
+    /* Footer */
+    .footer {
+        padding: 20px;
+        background-color: #1c1c1c;
+        text-align: center;
+    }
+
+
+
+
+
+    /* Movie Carousel Container */
+    .movie-carousel-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    /* Carousel Buttons */
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2;
+        padding: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-button.prev {
+        left: 0;
+    }
+
+    .carousel-button.next {
+        right: 0;
+    }
+
+    /* Movie Carousel Container */
+    .movie-carousel-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    /* Carousel Buttons */
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2;
+        padding: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-button.prev {
+        left: 0;
+    }
+
+    .carousel-button.next {
+        right: 0;
+    }
+
+    /* Movie Carousel */
+    .movie-carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    .movie-carousel {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .movies-wrapper {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 20px;
+        will-change: transform;
+        
+    }
+
+    .movie-card {
+        flex: 0 0 220px; /* Ensures all movie cards have a fixed size */
+        height: 400px; /* Matches height as well */
+        background-color: #1c1c1c;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s;
+        transform: scale(0.8);
+        max-width: 250px;
+    }
+
+    .movie-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .movie-card p {
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.05);
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        padding: 15px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .carousel-button.prev {
+        left: 0;
+    }
+
+    .carousel-button.next {
+        right: 0;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .movie-card {
+            flex: 0 0 33.33%; /* Adjusts for tablet view */
+            max-width: 33.33%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .movie-card {
+            flex: 0 0 50%; /* Adjusts for mobile view */
+            max-width: 50%;
+        }
+    }
+</style>
+<body>
+<a id="top"></a> 
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent">
+  <div class="container-fluid">
+    <div class="mx-auto d-flex align-items-center">
+      <a class="navbar-brand" href="index.html"><img src="image/logonew.png" alt="BLVCKLIST" height="30"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link px-5" aria-current="page" href="index.html">HOME</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORY</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="act.html">Actions</a>
+                <a class="dropdown-item" href="anim.html">Animations</a>
+                <a class="dropdown-item" href="com.html">Comics</a>
+                <a class="dropdown-item" href="fant.html">Fantasy & Adventures</a>
+                <a class="dropdown-item" href="sci.html">Sci-Fi</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MORE</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="dev.html">About Us</a>
+                <a class="dropdown-item" href="feat.html">Advertise with Us</a>
+                <a class="dropdown-item" href="blogs.html">Blogs</a>
+              </div>
+            </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <br>
+  <br>
+  <br>
+
+ 
+</head>
+<body>
+ <section class="movies-section">
+    <!-- Carousel 2: Animations -->
+    <section class="movie-carousel-section">
+        <h1 style="color: #f8c71d;">ANIMATIONS</br></h1>
+        <div class="animations-logo-container">
+            <img src="steamboat.jpg" class="animations-logo" alt="steamboat mickey">
+        </div>		
+        <h1>DC ANIMATED MOVIE UNIVERSE</br></br>NEW 52</h1>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for DC Animated Universe -->
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\The Flashpoint Paradox.webp" alt="Justice League: The Flashpoint Paradox"><p>Justice League:</br>The Flashpoint Paradox</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\War.webp" alt="Justice League: War"><p>Justice League:</br>War</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Son of Batman.webp" alt="Son of Batman"><p>Son of Batman</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Throne of Atlantis.webp" alt="Justice League: Throne of Atlantis"><p>Justice League:</br>Throne of Atlantis</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Batman Vs. Robin.webp" alt="Batman Vs. Robin"><p>Batman Vs. Robin</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Bad Blood.webp" alt="Batman: Bad Blood"><p>Batman: Bad Blood</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Justice League vs. Teen Titans.webp" alt="Justice League vs. Teen Titans"><p>Justice League vs. Teen Titans</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\JL Dark.webp" alt="Justice League Dark"><p>Justice League Dark</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\The Judas Contract.webp" alt="Teen Titans: The Judas Contract"><p>Teen Titans:</br>The Judas Contract</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Hell to Pay.webp" alt="Suicide Squad: Hell to Pay"><p>Suicide Squad:</br>Hell to Pay</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\The Death of Superman.webp" alt="The Death of Superman"><p>The Death of Superman</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\City of Demons.webp" alt="Constantine: City of Demons"><p>Constantine:</br>City of Demons</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Reign of the Supermen.webp" alt="Reign of the Supermen"><p>Reign of the Supermen</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Hush.webp" alt="Batman: Hush"><p>Batman: Hush</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Bloodlines.webp" alt="Wonder Woman: Bloodlines"><p>Wonder Woman: Bloodlines</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\Apokolips War.webp" alt="Justice League Dark: Apokolips War"><p>Justice League Dark:</br>Apokolips War</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\House of Mystery.webp" alt="Constantine: House of Mystery"><p>Constantine:</br>House of Mystery</p></div>
+                    <div class="movie-card"><img src="image\Animations\New52 Posters\constantine.jpg" alt="constantine"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+		<div class="constantine-logo-container">
+            <img src="constantine.jpg" class="constantine-logo" alt="constantine">
+        </div>	
+        <h1>REBIRTH</h1>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Man of Tomorrow.webp" alt="Superman: Man of Tomorrow"><p>Superman:</br>Man of Tomorrow</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Justice Society - World War II.webp" alt="Justice Society: World War II"><p>Justice Society:</br>World War II</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\The Long Halloween Part One.webp" alt="Batman: The Long Halloween Part One"><p>Batman:</br>The Long Halloween Part One</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\The Long Halloween Part Two.webp" alt="Batman: The Long Halloween Part Two"><p>Batman:</br>The Long Halloween Part Two</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Beware My Power.webp" alt="Green Lantern: Beware My Power"><p>Green Lantern:</br>Beware My Power</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Legion of Super-Heroes.webp" alt="Legion of Super-Heroes"><p>Legion of Super-Heroes</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Warworld.webp" alt="Justice League: Warworld"><p>Justice League:</br>Warworld</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Crisis on Infinite Earths Part One.webp" alt="Justice League: Crisis on Infinite Earths Part One"><p>Justice League:</br>Crisis on Infinite Earths Part One</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Crisis on Infinite Earths Part Two.webp" alt="Justice League: Crisis on Infinite Earths Part Two"><p>Justice League:</br>Crisis on Infinite Earths Part Two</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\Crisis on Infinite Earths Part Three.webp" alt="Justice League: Crisis on Infinite Earths Part Three"><p>Justice League:</br>Crisis on Infinite Earths Part Three</p></div>
+                    <div class="movie-card"><img src="image\Animations\Rebirth Posters\john.jfif" alt="john"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="movie-carousel-section">
+        <div class="lamp-logo-container">
+            <img src="lamp.png" class="lamp-logo" alt="lamp">
+        </div>	
+        <h2>PIXAR</h2>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for Pixar -->
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Toy Story.webp" alt="Toy Story"><p>Toy Story</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\A Bug's Life.webp" alt="A Bug's Life"><p>A Bug's Life</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Toy Story 2.webp" alt="Toy Story 2"><p>Toy Story 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Monsters Inc..webp" alt="Monsters Inc."><p>Monsters Inc.</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Finding Nemo.webp" alt="Finding Nemo"><p>Finding Nemo</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\The Incredibles.webp" alt="The Incredibles"><p>The Incredibles</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Cars.webp" alt="Cars"><p>Cars</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Ratatouille.webp" alt="Ratatouille"><p>Ratatouille</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\WALL-E.webp" alt="WALL-E"><p>WALL-E</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Up.webp" alt="Up"><p>Up</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Toy Story 3.webp" alt="Toy Story 3"><p>Toy Story 3</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Cars 2.webp" alt="Cars 2"><p>Cars 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Brave.webp" alt="Brave"><p>Brave</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Monsters University.webp" alt="Monsters University"><p>Monsters University</p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for Pixar -->
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Inside Out.webp" alt="Inside Out"><p>Inside Out</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\The Good Dinosaur.webp" alt="The Good Dinosaur"><p>The Good Dinosaur</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Finding Dory.webp" alt="Finding Dory"><p>Finding Dory</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Cars 3.webp" alt="Cars 3"><p>Cars 3</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Coco.webp" alt="Coco"><p>Coco</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\The Inredibles II.webp" alt="The Inredibles II"><p>The Inredibles II</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Toy Story 4.webp" alt="Toy Story 4"><p>Toy Story 4</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Onward.webp" alt="Onward"><p>Onward</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Soul.webp" alt="Soul"><p>Soul</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Luca.webp" alt="Luca"><p>Luca</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Turning Red.webp" alt="Turning Red"><p>Turning Red</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Lightyear.webp" alt="Lightyear"><p>Lightyear</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Elemental.webp" alt="Elemental"><p>Elemental</p></div>
+                    <div class="movie-card"><img src="image\Animations\Pixar Posters\Inside Out 2.webp" alt="Inside Out  2"><p>Inside Out 2</p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+	<section class="movie-carousel-section">
+        <div class="dreamer-logo-container">
+            <img src="dreamer.jfif" class="dreamer-logo" alt="dreamer">
+        </div>	
+        <h2>DREAMWORKS</h2>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for Dreamworks -->
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Antz.webp" alt="Antz"><p>Antz</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Prince of Egypt.webp" alt="The Prince of Egypt"><p>The Prince of Egypt</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Road to El Dorado.webp" alt="The Road to El Dorado"><p>The Road to El Dorado</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Chicken Run.webp" alt="Chicken Run"><p>Chicken Run</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Joseph - King of Dreams.webp" alt="Joseph: King of Dreams"><p>Joseph:</br>King of Dreams</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Shrek.webp" alt="Shrek"><p>Shrek</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Spirit - Stallion of the Cimarron.webp" alt="Spirit: Stallion of the Cimarron"><p>Spirit:</br>Stallion of the Cimarron</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Sinbad - Legend of the Seven Seas.webp" alt="Sinbad: Legend of the Seven Seas"><p>Sinbad:</br>Legend of the Seven Seas</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Shrek 2.webp" alt="Shrek 2"><p>Shrek 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Shark Tale.webp" alt="Shark Tale"><p>Shark Tale</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Madagascar.webp" alt="Madagascar"><p>Madagascar</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Wallace & Gromit - The Curse of the Were-Rabbit.webp" alt="Wallace & Gromit: The Curse of the Were-Rabbit"><p>Wallace & Gromit:</br>The Curse of the Were-Rabbit</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\dreamer.jfif" alt="dreamer"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Over the Hedge.webp" alt="Over the Hedge"><p>Over the Hedge</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Flushed Away.webp" alt="Flushed Away"><p>Flushed Away</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Shrek the Third.webp" alt="Shrek the Third"><p>Shrek the Third</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Bee Movie.webp" alt="Bee Movie"><p>Bee Movie</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Kung Fu Panda.webp" alt="Kung Fu Panda"><p>Kung Fu Panda</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Madagascar - Escape 2 Africa.webp" alt="Madagascar: Escape 2 Africa"><p>Madagascar:</br>Escape 2 Africa</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Monsters vs. Aliens.webp" alt="Monsters vs. Aliens"><p>Monsters vs. Aliens</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\How to Train Your Dragon.webp" alt="How to Train Your Dragon"><p>How to Train Your Dragon</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Shrek Forever After.webp" alt="Shrek Forever After"><p>Shrek Forever After</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Megamind.webp" alt="Megamind"><p>Megamind</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Kung Fu Panda 2.webp" alt="Kung Fu Panda 2"><p>Kung Fu Panda 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Puss in Boots.webp" alt="Puss in Boots"><p>Puss in Boots</p></div>
+					<div class="movie-card"><img src="image\Animations\Dreamworks Posters\dreamer.jfif" alt="dreamer"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+	<section class="movie-carousel-section">
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for Dreamworks -->
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Madagascar 3 - Europe's Most Wanted.webp" alt="Madagascar 3: Europe's Most Wanted"><p>Madagascar 3:</br>Europe's Most Wanted</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Rise of the Guardians.webp" alt="Rise of the Guardians"><p>Rise of the Guardians</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Croods.webp" alt="The Croods"><p>The Croods</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Turbo.webp" alt="Turbo"><p>Turbo</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Mr. Peabody & Sherman.webp" alt="Mr. Peabody & Sherman"><p>Mr. Peabody & Sherman</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\How to Train Your Dragon 2.webp" alt="How to Train Your Dragon 2"><p>How to Train Your Dragon 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Penguins of Madagascar.webp" alt="Penguins of Madagascar"><p>Penguins of Madagascar</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Home.webp" alt="Home"><p>Home</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Kung Fu Panda 3.webp" alt="Kung Fu Panda 3"><p>Kung Fu Panda 3</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Trolls.webp" alt="Trolls"><p>Trolls</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Boss Baby.webp" alt="The Boss Baby"><p>The Boss Baby</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Captain Underpants - The First Epic Movie.webp" alt="Captain Underpants: The First Epic Movie"><p>Captain Underpants</br>The First Epic Movie</p></div>
+					<div class="movie-card"><img src="image\Animations\Dreamworks Posters\dreamer.jfif" alt="dreamer"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\How to Train Your Dragon - The Hidden World.webp" alt="How to Train Your Dragon: The Hidden World"><p>How to Train Your Dragon:</br>The Hidden World</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Abominable.webp" alt="Abominable"><p>Abominable</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Trolls World Tour.webp" alt="Trolls World Tour"><p>Trolls World Tour</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Croods - A New Age.webp" alt="The Croods: A New Age"><p>The Croods:</br>A New Age</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Spirit Untamed.webp" alt="Spirit Untamed"><p>Spirit Untamed</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Boss Baby - Family Business.webp" alt="The Boss Baby: Family Business"><p>The Boss Baby:</br>Family Business</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\The Bad Guys.webp" alt="The Bad Guys"><p>The Bad Guys</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Puss in Boots - The Last Wish.webp" alt="Puss in Boots: The Last Wish"><p>Puss in Boots:</br>The Last Wish</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Ruby Gillman, Teenage Kraken.webp" alt="Ruby Gillman, Teenage Kraken"><p>Ruby Gillman, Teenage Kraken</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Trolls Band Together.webp" alt="Trolls Band Together"><p>Trolls Band Together</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Orion and the Dark.webp" alt="Orion and the Dark"><p>Orion and the Dark</p></div>
+                    <div class="movie-card"><img src="image\Animations\Dreamworks Posters\Kung Fu Panda 4.webp" alt="Kung Fu Panda 4"><p>Kung Fu Panda 4</p></div>
+					<div class="movie-card"><img src="image\Animations\Dreamworks Posters\dreamer.jfif" alt="dreamer"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+    <section class="movie-carousel-section">
+        <div class="miles-logo-container">
+            <img src="miles.jpg" class="miles-logo" alt="miles">
+        </div>	
+        <h1>SONY</h1>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for SONY -->
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Monster House.webp" alt="Monster House"><p>Monster House</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Open Season.webp" alt="Open Season"><p>Open Season</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Surf's Up.webp" alt="Surf's Up"><p>Surf's Up</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Open Season 2.webp" alt="Open Season 2"><p>Open Season 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Cloudy With a Chance of Meatballs.webp" alt="Cloudy With a Chance of Meatballs"><p>Cloudy With a Chance of Meatballs</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Planet 51.jfif" alt="Planet 51"><p>Planet 51</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Open Season 3.webp" alt="Open Season 3"><p>Open Season 3</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Smurfs.webp" alt="The Smurfs"><p>The Smurfs</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Arthur Christmas.webp" alt="Arthur Christmas"><p>Arthur Christmas</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Pirates! In an Adventure with Scientists!.webp" alt="The Pirates! In an Adventure with Scientists!"><p>The Pirates!</br>In an Adventure with Scientists!</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Hotel Transylvania.webp" alt="Hotel Transylvania"><p>Hotel Transylvania</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Smurfs 2.webp" alt="The Smurfs 2"><p>The Smurfs 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Cloudy With a Chance of Meatballs 2.webp" alt="Cloudy With a Chance of Meatballs 2"><p>Cloudy With a Chance of Meatballs 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Pixels.webp" alt="Pixels"><p>Pixels</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Hotel Transylvania 2.webp" alt="Hotel Transylvania 2"><p>Hotel Transylvania 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\sony.jfif" alt="sony"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Goosebumps.webp" alt="Goosebumps"><p>Goosebumps</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Angry Birds Movie.webp" alt="The Angry Birds Movie"><p>The Angry Birds Movie</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Open Season - Scared Silly.webp" alt="Open Season: Scared Silly"><p>Open Season:</br>Scared Silly</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Surf's Up 2 WaveMania.webp" alt="Surf's Up 2 WaveMania"><p>Surf's Up 2 WaveMania</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Smurfs - The Lost Village.webp" alt="Smurfs: The Lost Village"><p>Smurfs:</br>The Lost Village</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Peter Rabbit.webp" alt="Peter Rabbit"><p>Peter Rabbit</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Hotel Transylvania 3 - Summer Vacation.webp" alt="Hotel Transylvania 3: Summer Vacation"><p>Hotel Transylvania 3:</br>Summer Vacation</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Goosebumps 2 - Haunted Halloween.webp" alt="Goosebumps 2: Haunted Halloween"><p>Goosebumps 2: Haunted Halloween</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Angry Birds Movie 2.webp" alt="The Angry Birds Movie 2"><p>The Angry Birds Movie 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Mitchells vs the Machines.webp" alt="The Mitchells vs the Machines"><p>The Mitchells vs the Machines</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Peter Rabbit 2 - The Runaway.webp" alt="Peter Rabbit 2: The Runaway"><p>Peter Rabbit 2:</br>The Runaway</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Wish Dragon.webp" alt="Wish Dragon"><p>Wish Dragon</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Vivo.webp" alt="Vivo"><p>Vivo</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\Hotel Transylvania - Transformation.webp" alt="Hotel Transylvania: Transformation"><p>Hotel Transylvania:</br>Transformation</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\The Garfield Movie.webp" alt="The Garfield Movie"><p>The Garfield Movie</p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\sony.jfif" alt="sony"><p></p></div>
+                    <div class="movie-card"><img src="image\Animations\SONY Posters\sony.jfif" alt="sony"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+	<section class="movie-carousel-section">
+        <div class="trio-logo-container">
+            <img src="trio.jfif" class="trio-logo" alt="trio">
+        </div>	
+        <h1>ILLUMINATION</h1>
+        <div class="movie-carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="movie-carousel">
+                <div class="movies-wrapper">
+                    <!-- Movie cards for Illumination -->
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Despicable Me.webp" alt="Despicable Me"><p>Despicable Me</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Hop.webp" alt="Hop"><p>Hop</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\The Lorax.webp" alt="The Lorax"><p>The Lorax</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Despicable Me 2.webp" alt="Despicable Me 2"><p>Despicable Me 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Minions.webp" alt="Minions"><p>Minions</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\The Secret Life of Pets.webp" alt="The Secret Life of Pets"><p>The Secret Life of Pets</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Sing.webp" alt="Sing"><p>Sing</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Despicable Me 3.webp" alt="Despicable Me 3"><p>Despicable Me 3</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\The Grinch.webp" alt="The Grinch"><p>The Grinch</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\The Secret Life of Pets 2.webp" alt="The Secret Life of Pets 2"><p>The Secret Life of Pets 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Sing 2.webp" alt="Sing 2"><p>Sing 2</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Minions - The Rise of Gru.webp" alt="Minions: The Rise of Gru"><p>Minions:</br>The Rise of Gru</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\The Super Mario Bros. Movie.webp" alt="The Super Mario Bros. Movie"><p>The Super Mario Bros. Movie</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Migration.webp" alt="Migration"><p>Migration</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\Despicable Me 4.webp" alt="Despicable Me 4"><p>Despicable Me 4</p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\minion.jpg" alt="minion"><p></p></div>
+                    <div class="movie-card"><img src="image\Animations\Illumination Posters\minion.jpg" alt="minion"><p></p></div>
+                </div>
+            </div>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+</section>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-custom" onclick="window.location.href='#top'">Back to Top</button>
+    </div>
+    <br>
+  
+
+<footer class="footer">
+  <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="footer-links">
+      <a href="#">Contact Us</a> |
+      <a href="#">Help</a> |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Cookie Policy</a> |
+      <a href="#">Advertise with Us</a> 
+  </div>
+  <div class="footer-copyright">
+      &copy; 2024 BLVCKLIST. All rights reserved.
+  </div>
+</footer>
+
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousels = document.querySelectorAll(".movie-carousel-container");
+            carousels.forEach(function (carousel) {
+                const moviesWrapper = carousel.querySelector(".movies-wrapper");
+                const prevButton = carousel.querySelector(".carousel-button.prev");
+                const nextButton = carousel.querySelector(".carousel-button.next");
+                const cardWidth = carousel.querySelector(".movie-card").offsetWidth + 20; // Adding margin
+                const totalCards = moviesWrapper.children.length;
+                let scrollPosition = 0;
+
+                // Function to move the carousel
+                function moveCarousel(direction) {
+                    const maxScroll = moviesWrapper.scrollWidth - moviesWrapper.clientWidth;
+                    scrollPosition += direction * cardWidth;
+
+                    if (scrollPosition < 0) {
+                         // If we're at the start and moving backward, jump to the end
+                        scrollPosition = maxScroll;
+                    } else if (scrollPosition > maxScroll) {
+                        // If we're at the end and moving forward, jump to the start
+                        scrollPosition = 0;
+                    }
+
+                    moviesWrapper.style.transform = `translateX(-${scrollPosition}px)`;
+                }
+
+                // Attach event listeners to buttons
+                prevButton.addEventListener("click", function () {
+                    moveCarousel(-1);
+                });
+
+                nextButton.addEventListener("click", function () {
+                    moveCarousel(1);
+                });
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

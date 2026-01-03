@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="image/5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLVCKLIST MOVIE HUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<style>
+            body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c;
+    }
+
+    .navbar-nav .nav-link {
+    font-weight: normal; /* Set font weight to normal */
+    font-size: 10px; /* Adjust font size if needed */
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+
+
+
+    /* Modal Styles */
+    .modal-right .modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 50%;
+    width: 300px; /* Adjust width as needed */
+    max-width: 100%;
+    padding-right: 3%;
+    }
+
+    .modal-right .modal-content {
+    background-color: #1A1A1A; /* Deep black background */
+    color: #FFFFFF; /* White text */
+    height: 100%;
+    border-radius: 0; /* No rounded corners */
+    border: none;
+    }
+
+    .modal-right .modal-header,
+    .modal-right .modal-footer {
+    border: none; /* Remove borders */
+    }
+
+    /* Close button in the modal */
+    .modal-right .modal-header .btn-close {
+    display: none; /* Hide the close button */
+    }
+
+    /* Hide the backdrop */
+    .modal-backdrop.show {
+    opacity: 0;
+    }
+
+    /* Customized Button */
+    #agreeButton {
+    background-color: #FF6A00; /* Vibrant Orange */
+    border-color: #FF6A00; /* Orange border */
+    color: #FFFFFF; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    display: block; /* Ensure it's block-level for centering */
+    margin: 0 auto; /* Center horizontally */
+    }
+
+    /* Hover and Active States */
+    #agreeButton:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    #agreeButton:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* For clicked state */
+    #agreeButton.clicked {
+    background-color: #F0C5A4 !important; /* Light orange for clicked state */
+    border-color: #000000 !important; /* Black border for clicked state */
+    }
+
+        /* Video container with fixed height */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Style the video to cover the container */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container while maintaining aspect ratio */
+            display: block;
+        }
+
+        /* Style the Play Now button to match .btn-custom */
+    .play-now-button {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Match transitions */
+    z-index: 2;
+    }
+
+    /* Hover state */
+    .play-now-button:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .play-now-button:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+        /* Video overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start (left side) */
+            padding: 20px; /* Add padding to the overlay */
+            box-sizing: border-box;
+            color: white; /* White text color */
+        }
+
+        /* Style for overlay text */
+        .video-overlay h3 {
+            margin-bottom: 20px;
+            font-size: 2rem; /* Adjust font size as needed */
+        }
+        .modal-content {
+            background-color: #FF6A00; /* Set the background color to #f2a65a */
+            color: black; /* Set text color to white for better contrast */
+        }
+
+        .modal-header, .modal-footer {
+            border: none; /* Remove borders if desired */
+        }
+
+        .modal-header .btn-close {
+            color: #000000;
+
+        }
+
+    /* Pricing Section */
+    .price-list-section {
+        padding: 10px;
+        background-color: #1c1c1c;
+        text-align: center;
+    }
+
+    .price-list-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #FF6A00;
+    }
+
+    .price-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .price-card {
+        background-color: #2a2a2a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        color: #c5baaa;
+        transition: transform 0.3s ease;
+        text-align: left;
+    }
+
+    .price-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .price-card .price {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #FF6A00;
+    }
+
+    .price-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .price-card ul li {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .select-plan-btn {
+        background-color: #FF6A00;
+        color: #1c1c1c;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 9px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .select-plan-btn:hover {
+        background-color: #ffffff;
+    }
+
+    .price-card:hover {
+        transform: scale(1.05);
+    }
+
+    #subscriptionModal .modal-dialog {
+    width: 100%; /* Slightly narrower width */
+    max-width: 1000px; /* Max width to control the layout */
+    margin: auto; /* Center the modal */
+    height: auto; /* Let height adjust based on content */
+    }
+
+    #subscriptionModal .modal-content {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal arrangement */
+    flex-wrap: wrap; /* Allow content to wrap if necessary */
+    justify-content: center; /* Center the items horizontally */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px; /* Add padding */  
+    background-color: #1A1A1A; /* Background color */
+    color: #FFFFFF; /* Text color */
+    }
+
+    /* Subscription prompt button */
+    .subscription-prompt button {
+    background-color: #806D61; /* Craft color */
+    color: #FFFFFF; /* White text for contrast */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Slightly larger padding for better touch target */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+
+    /* Hover state */
+    .subscription-prompt button:hover {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* Keep text white */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .subscription-prompt button:active {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* Fit content for buttons with outline-danger class */
+    .btn-outline-danger {
+    max-width: fit-content;
+    }
+
+
+    /* Button default style */
+    .btn-custom {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; 
+    }
+
+
+
+
+
+
+    /* Button hover style */
+    .btn-custom:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Button active style */
+    .btn-custom:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+
+    #contact {
+    background-color: #2F2F2F; /* Light grey/darker background */
+    color: #FFFFFF; /* White text */
+    padding: 40px 0; /* Add padding for better spacing */
+    }
+
+    /* Contact section buttons */
+    .btn-outline-primary {
+    border-color: #FF6A00; /* Orange border */
+    color: #FF6A00; /* Orange text */
+    }
+
+    .btn-outline-primary:hover {
+    background-color: #FF6A00; /* Orange background on hover */
+    color: #FFFFFF; /* White text on hover */
+    }
+
+
+
+
+    .footer {
+    background-color: #1a1a1a; /* dark grey */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    }
+
+    .footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 18px;
+    text-decoration: none;
+    }
+
+    .footer .social-icons a:hover {
+    color: #aaaaaa; /* lighter grey on hover */
+    }
+
+    .footer-links {
+    margin: 20px 0;
+    }
+
+    .footer-links a {
+    color: #ffffff;
+    margin: 0 5px;
+    text-decoration: none;
+    }
+
+    .footer-links a:hover {
+    text-decoration: underline;
+    }
+
+    .footer a {
+    color: #ffffff;
+    }
+
+    .footer a:hover {
+    color: #bbbbbb; /* lighter grey on hover */
+    }
+
+    .footer .footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    }
+
+    /* Basic resets */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #121212;
+}
+
+h1, h2 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+  
+  .marvel-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if container has height) */
+    height: 250px;           /* Set a height if needed */
+    margin: 0 100px;
+  }
+  
+  /* Style for the logo */
+  .marvel-logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .marvel-logo:hover {
+    box-shadow: 0 0 20px #5f0404;
+    transform: scale(1.1);
+  }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+  .dc-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if container has height) */
+    height: 250px;           /* Set a height if needed */
+    margin: 0 100px;
+  }
+  
+  /* Style for the logo */
+  .dc-logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .dc-logo:hover {
+    box-shadow: 0 0 20px #49515d;
+    transform: scale(1.1);
+  }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+
+
+
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel */
+.movie-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.movie-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.movies-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    will-change: transform;
+    
+}
+
+.movie-card {
+    flex: 0 0 220px; /* Ensures all movie cards have a fixed size */
+    height: 400px; /* Matches height as well */
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    transform: scale(0.8);
+    max-width: 250px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie-card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .movie-card {
+        flex: 0 0 33.33%; /* Adjusts for tablet view */
+        max-width: 33.33%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        flex: 0 0 50%; /* Adjusts for mobile view */
+        max-width: 50%;
+    }
+}
+</style>
+<body>
+<a id="top"></a>
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent">
+  <div class="container-fluid">
+    <div class="mx-auto d-flex align-items-center">
+      <a class="navbar-brand" href="index.html"><img src="image/logonew.png" alt="BLVCKLIST" height="30"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link px-5" aria-current="page" href="index.html">HOME</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORY</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="act.html">Actions</a>
+                <a class="dropdown-item" href="anim.html">Animations</a>
+                <a class="dropdown-item" href="com.html">Comics</a>
+                <a class="dropdown-item" href="fant.html">Fantasy & Adventures</a>
+                <a class="dropdown-item" href="sci.html">Sci-Fi</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MORE</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="dev.html">About Us</a>
+                <a class="dropdown-item" href="feat.html">Advertise with Us</a>
+                <a class="dropdown-item" href="blogs.html">Blogs</a>
+              </div>
+            </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <br>
+  <br>
+  <br>
+
+ 
+</head>
+<body>
+<!-- Comics -->
+<section class="movies-section">
+        <h1 style="color: #d60000;">COMICS</h1>
+		<div class="marvel-logo-container">
+            <img src="Marvel.png" class="marvel-logo" alt="Marvel">
+        </div>
+        <section class="movie-carousel-section">
+            <h2>Marvel Cinematic Universe (MCU) </br>PHASE ONE</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Cinematic Universe -->
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\The Infinity Saga.webp" alt="The Infinity Saga"><h1>PHASE 1</br>INFINITY SAGA</h1></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\Iron Man.webp" alt="Iron Man"><p>Iron Man</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\The Incredible Hulk.webp" alt="The Incredible Hulk"><p>The Incredible Hulk</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\Iron Man 2.webp" alt="Iron Man 2"><p>Iron Man 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\Thor.webp" alt="Thor"><p>Thor</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\ONE SHOT - The Consultant.webp" alt="ONE SHOT: The Consultant"><p>ONE SHOT: The Consultant</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\Captain America - The First Avenger.webp" alt="Captain America: The First Avenger"><p>Captain America: The First Avenger</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\ONE SHOT - A Funny Thing Happened on the Way to Thor's Hammer.webp" alt="ONE SHOT: A Funny Thing Happened on the Way to Thor's Hammer"><p>ONE SHOT: A Funny Thing Happened on the Way to Thor's Hammer</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\The Avengers.webp" alt="The Avengers"><p>The Avengers</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 1 Posters\ONE SHOT - Item 47.webp" alt="ONE SHOT: Item 47"><p>ONE SHOT: Item 47</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<section class="movie-carousel-section">
+            <h2>Marvel Cinematic Universe (MCU) </br>PHASE TWO</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Cinematic Universe -->
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\The Infinity Saga.webp" alt="The Infinity Saga"><h1>Phase 2</br>INFINITY SAGA</h1></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Iron Man 3.webp" alt="Iron Man 3"><p>Iron Man 3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\ONE SHOT - Agent Carter.webp" alt="ONE SHOT: Agent Carter"><p>ONE SHOT: Agent Carter</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\The Dark World.webp" alt="Thor: The Dark World"><p>Thor: The Dark World</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\ONE SHOT - All Hail the King.webp" alt="ONE SHOT: All Hail the King"><p>ONE SHOT: All Hail the King</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\The Winter Soldier.webp" alt="Captain America: The Winter Soldier"><p>Captain America: The Winter Soldier</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Guardians of the Galaxy.webp" alt="Guardians of the Galaxy"><p>Guardians of the Galaxy</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Daredevil S1.webp" alt="Daredevil S1"><p>Daredevil S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Jessica Jones S1.webp" alt="Jessica Jones S1"><p>Jessica Jones S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Age of Ultron.webp" alt="Avengers: Age of Ultron"><p>Avengers: Age of Ultron</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Ant-Man.webp" alt="Ant-Man"><p>Ant-Man</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Agent Carter S1.webp" alt="Agent Carter S1"><p>Agent Carter S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Daredevil S2.webp" alt="Daredevil S2"><p>Daredevil S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Luke Cage S1.webp" alt="Luke Cage S1"><p>Luke Cage S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\Iron Fist S1.webp" alt="Iron Fist S1"><p>Iron Fist S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 2 Posters\The Defenders.webp" alt="The Defenders"><p>The Defenders</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<section class="movie-carousel-section">
+            <h2>Marvel Cinematic Universe (MCU) </br>PHASE THREE</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\The Infinity Saga.webp" alt="The Infinity Saga"><h1>PHASE THREE</br>INFINITY SAGA</h1></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Agent Carter S2.webp" alt="Agent Carter S2"><p>Agent Carter S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Civil War.webp" alt="Captain America: Civil War"><p>Captain America: Civil War</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\ONE SHOT TEAM THOR Part 1.webp" alt="ONE SHOT: TEAM THOR Part 1"><p>ONE SHOT: TEAM THOR Part 1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Doctor Strange.webp" alt="Doctor Strange"><p>Doctor Strange</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\ONE SHOT TEAM THOR Part 2.webp" alt="ONE SHOT: TEAM THOR Part 2"><p>ONE SHOT: TEAM THOR Part 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\GOTG Vol. 2.webp" alt="Guardians of the Galaxy Vol. 2"><p>Guardians of the Galaxy Vol. 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Spider-Man - Homecoming.webp" alt="Spider-Man: Homecoming"><p>Spider-Man: Homecoming</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\The Punisher S1.webp" alt="The Punisher S1"><p>The Punisher S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Jessica Jones S2.webp" alt="Jessica Jones S2"><p>Jessica Jones S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Luke Cage S2.webp" alt="Luke Cage S2"><p>Luke Cage S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Iron Fist S2.webp" alt="Iron Fist S2"><p>Iron Fist S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Ragnarok.webp" alt="Thor: Ragnarok"><p>Thor: Ragnarok</p></div>
+					</div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+			<div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\ONE SHOT TEAM THOR Part 3.webp" alt="ONE SHOT: TEAM THOR Part 3"><p>ONE SHOT: TEAM THOR Part 3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Black Panther.webp" alt="Black Panther"><p>Black Panther</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Daredevil S3.webp" alt="Daredevil S3"><p>Daredevil S3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Infinity War.webp" alt="Avengers: Infinity War"><p>Avengers: Infinity War</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Ant-Man and the Wasp.webp" alt="Ant-Man and the Wasp"><p>Ant-Man and the Wasp</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\The Punisher S2.webp" alt="The Punisher S2"><p>The Punisher S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Jessica Jones S3.webp" alt="Jessica Jones S3"><p>Jessica Jones S3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Captain Marvel.webp" alt="Captain Marvel"><p>Captain Marvel</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Endgame.webp" alt="Avengers: Endgame"><p>Avengers: Endgame</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Far From Home.webp" alt="Spider-Man: Far From Home"><p>Spider-Man: Far From Home</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 3 Posters\Peter's To-Do List.webp" alt="Peter's To-Do List"><p>Peter's To-Do List</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<section class="movie-carousel-section">
+            <h2>Marvel Cinematic Universe (MCU) </br>PHASE FOUR</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Cinematic Universe -->
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\The Multiverse Saga.webp" alt="The Multiverse Saga"><h1>PHASE 4</br>MULTIVERSE SAGA</h1></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\WandaVision S1.webp" alt="WandaVision S1"><p>WandaVision S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\The Falcon and the Winter Soldier S1.webp" alt="The Falcon and the Winter Soldier S1"><p>The Falcon and the Winter Soldier S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Loki S1.webp" alt="Loki S1"><p>Loki S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Black Widow.webp" alt="Black Widow"><p>Black Widow</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\What If S1.webp" alt="What If?... S1"><p>What If?... S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Shang-Chi and the Legend of the Ten Rings.webp" alt="Shang-Chi and the Legend of the Ten Rings"><p>Shang-Chi and the Legend of the Ten Rings</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Eternals.webp" alt="Eternals"><p>Eternals</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Hawkeye.webp" alt="Hawkeye"><p>Hawkeye</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\No Way Home.webp" alt="Spider-Man: No Way Home"><p>Spider-Man: No Way Home</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Moon Knight S1.webp" alt="Moon Knight S1"><p>Moon Knight S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Doctor Strange in the Multiverse of Madness.webp" alt="Doctor Strange in the Multiverse of Madness"><p>Doctor Strange in the Multiverse of Madness</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Ms. Marvel S1.webp" alt="Ms. Marvel S1"><p>Ms. Marvel S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Love and Thunder.webp" alt="Thor: Love and Thunder"><p>Thor: Love and Thunder</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\I Am Groot S1.webp" alt="I Am Groot S1"><p>I Am Groot S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\She-Hulk Attorney at Law S1.webp" alt="She-Hulk Attorney at Law S1"><p>She-Hulk Attorney at Law S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Werewolf by Night.webp" alt="Werewolf by Night"><p>Werewolf by Night</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\Wakanda Forever.webp" alt="Black Panther: Wakanda Forever"><p>Black Panther: Wakanda Forever</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 4 Posters\The GOTG Holiday Special.webp" alt="The Guardians of the Galaxy Holiday Special"><p>The Guardians of the Galaxy Holiday Special</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<section class="movie-carousel-section">
+            <h2>Marvel Cinematic Universe (MCU) </br>PHASE FIVE</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Cinematic Universe -->
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\The Multiverse Saga.webp" alt="The Multiverse Saga"><h1>PHASE 5</br>MULTIVERSE SAGA</h1></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\Quantumania.webp" alt="Ant-Man and the Wasp: 	Quantumania"><p>Ant-Man and the Wasp: Quantumania</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\GOTG Vol. 3.webp" alt="Guardians of the Galaxy Vol. 3"><p>Guardians of the Galaxy Vol. 3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\Secret Invasion S1.webp" alt="Secret Invasion S1"><p>Secret Invasion S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\Loki S2.webp" alt="Loki S2"><p>Loki S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\The Marvels.webp" alt="The Marvels"><p>The Marvels</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\What If S2.webp" alt="What If?... S2"><p>What If?... S2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\Echo S1.webp" alt="Echo S1"><p>Echo S1</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Phase 5 Posters\Deadpool & Wolverine.webp" alt="Deadpool & Wolverine"><p>Deadpool & Wolverine</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<!-- Carousel 2: Marvel Sony Universe -->
+		<section class="movie-carousel-section">
+            <h2>Marvel Sony Universe</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Sony Universe -->
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM1.webp" alt="Spider-Man"><p>Spider-Man</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM2.webp" alt="Spider-Man 2"><p>Spider-Man 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM3.webp" alt="Spider-Man 3"><p>Spider-Man 3</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.webp" alt="The Amazing Spider-Man"><p>The Amazing Spider-Man</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM2.webp" alt="The Amazing Spider-Man 2"><p>The Amazing Spider-Man 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SV1.webp" alt="Into the Spider-Verse"><p>Into the Spider-Verse</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\The Spider Within.webp" alt="The Spider Within: A Spider-Verse Story"><p>The Spider Within: A Spider-Verse Story</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SV2.webp" alt="Across the Spider-Verse"><p>Across the Spider-Verse</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+			<div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Sony Universe -->
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Spider.webp" alt="SPIDER-VERSE"><h1>SPIDER-VERSE</h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Venom.webp" alt="Venom"><p>Venom</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Let There Be Carnage.webp" alt="Venom: Let There Be Carnage"><p>Venom: Let There Be Carnage</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Morbius.webp" alt="Morbius"><p>Morbius</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Madame Web.webp" alt="Madame Web"><p>Madame Web</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\The Last Dance.webp" alt="Venom: The Last Dance"><p>Venom: The Last Dance</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Kraven The Hunter.webp" alt="Kraven The Hunter"><p>Kraven The Hunter</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\Spider.webp" alt="SPIDER-VERSE"><h1>SPIDER-VERSE</h1></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Sony Universe -->
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM1.2.webp" alt="SM1.2"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM2.2.webp" alt="SM2.2"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM2.3.webp" alt="SM2.3"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\SM3.2.webp" alt="SM3.2"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.2.webp" alt="TASM1.2"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.3.webp" alt="TASM1.3"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.4.webp" alt="TASM1.4"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.5.webp" alt="TASM1.5"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.6.webp" alt="TASM1.6"><h1></h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Sony Universe\TASM1.7.webp" alt="TASM1.7"><h1></h1></div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+        <!-- Carousel 3: Marvel Fox Universe -->
+		<section class="movie-carousel-section">
+            <h2>Marvel Fox Universe</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Fox Universe -->
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Fox Universe.webp" alt="MUTANTS"><h1>MUTANTS</h1></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\X-Men.webp" alt="X-Men"><p>X-Men</p></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\X-Men - United.webp" alt="X2: X-Men United"><p>X2: X-Men United</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\The Last Stand.webp" alt="X-Men: The Last Stand"><p>X-Men: The Last Stand</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Origins - Wolverine.webp" alt="X-Men Origins: Wolverine"><p>X-Men Origins: Wolverine</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\First Class.webp" alt="X-Men: First Class"><p>X-Men: First Class</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\The Wolverine.webp" alt="The Wolverine"><p>The Wolverine</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Days of Future Past.webp" alt="X-Men: Days of Future Past"><p>X-Men: Days of Future Past</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\.webp" alt=""><p></p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\.webp" alt=""><p></p></div>
+					</div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+			<div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Marvel Fox Universe -->
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\F4.webp" alt="Fantastic Four"><p>Fantastic Four</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\F42.webp" alt="Fantastic Four: Rise of the Silver Surfer"><p>Fantastic Four: Rise of the Silver Surfer</p></div>
+                        <div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Deadpool.webp" alt="Deadpool"><p>Deadpool</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Apocalypse.webp" alt="X-Men: Apocalypse"><p>X-Men: Apocalypse</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Logan.webp" alt="Logan"><p>Logan</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Deadpool 2.webp" alt="Deadpool 2"><p>Deadpool 2</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Dark Phoenix.webp" alt="X-Men: Dark Phoenix"><p>X-Men: Dark Phoenix</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\The New Mutants.webp" alt="The New Mutants"><p>The New Mutants</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\Deadpool & Wolverine.webp" alt="Deadpool & Wolverine"><p>Deadpool & Wolverine</p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\.webp" alt=""><p></p></div>
+						<div class="movie-card"><img src="image\Comics\Marvel Posters\Fox Universe\.webp" alt=""><p></p></div>
+					</div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+
+        <!-- Carousel 4: DC Extended Universe -->
+        <section class="movie-carousel-section">
+			<div class="dc-logo-container">
+				<img src="DC.png" class="dc-logo" alt="DC">
+			</div>
+            <h2>DC Extended Universe (DCEU)</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for DC Extended Universe -->
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Man of Steel.webp" alt="1"><p>Man of Steel</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Dawn of Justice.webp" alt="2"><p>Batman v Superman: Dawn of Justice</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Suicide Squad.webp" alt="3"><p>Suicide Squad</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Wonder Woman.webp" alt="4"><p>Wonder Woman</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Justice League.webp" alt="5"><p>Justice League</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Aquaman.webp" alt="6"><p>Aquaman</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Shazam!.webp" alt="7"><p>Shazam!</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Birds of Prey.webp" alt="8"><p>Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\1984.webp" alt="9"><p>Wonder Woman: 1984</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\ZSJL.webp" alt="10"><p>Zack Snyder's Justice League</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\The Suicide Squad.webp" alt="11"><p>The Suicide Squad</p></div>
+						<div class="movie-card"><img src="image\Comics\DCEU Posters\Peacemaker.jpg" alt="12"><p>Peacemaker</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Black Adam.webp" alt="13"><p>Black Adam</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Fury of the Gods.webp" alt="14"><p>Shazam!: Fury of the Gods</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\The Flash.webp" alt="15"><p>The Flash</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\Blue Beetle.webp" alt="16"><p>Blue Beetle</p></div>
+                        <div class="movie-card"><img src="image\Comics\DCEU Posters\The Lost Kingdom.webp" alt="17"><p>Aquaman: The Lost Kingdom</p></div>
+                        <!-- Add more movie cards here -->
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+</section>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-custom" onclick="window.location.href='#top'">Back to Top</button>
+    </div>
+    <br>
+  
+
+<footer class="footer">
+  <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="footer-links">
+      <a href="#">Contact Us</a> |
+      <a href="#">Help</a> |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Cookie Policy</a> |
+      <a href="#">Advertise with Us</a> 
+  </div>
+  <div class="footer-copyright">
+      &copy; 2024 BLVCKLIST. All rights reserved.
+  </div>
+</footer>
+
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousels = document.querySelectorAll(".movie-carousel-container");
+            carousels.forEach(function (carousel) {
+                const moviesWrapper = carousel.querySelector(".movies-wrapper");
+                const prevButton = carousel.querySelector(".carousel-button.prev");
+                const nextButton = carousel.querySelector(".carousel-button.next");
+                const cardWidth = carousel.querySelector(".movie-card").offsetWidth + 20; // Adding margin
+                const totalCards = moviesWrapper.children.length;
+                let scrollPosition = 0;
+
+                // Function to move the carousel
+                function moveCarousel(direction) {
+                    const maxScroll = moviesWrapper.scrollWidth - moviesWrapper.clientWidth;
+                    scrollPosition += direction * cardWidth;
+
+                    if (scrollPosition < 0) {
+                         // If we're at the start and moving backward, jump to the end
+                        scrollPosition = maxScroll;
+                    } else if (scrollPosition > maxScroll) {
+                        // If we're at the end and moving forward, jump to the start
+                        scrollPosition = 0;
+                    }
+
+                    moviesWrapper.style.transform = `translateX(-${scrollPosition}px)`;
+                }
+
+                // Attach event listeners to buttons
+                prevButton.addEventListener("click", function () {
+                    moveCarousel(-1);
+                });
+
+                nextButton.addEventListener("click", function () {
+                    moveCarousel(1);
+                });
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

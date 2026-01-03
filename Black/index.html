@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="image/5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLVCKLIST MOVIE HUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c;
+    }
+    
+    .navbar-nav .nav-link {
+    font-weight: normal; /* Set font weight to normal */
+    font-size: 10px; /* Adjust font size if needed */
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+
+
+
+    /* Modal Styles */
+    .modal-right .modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 50%;
+    width: 300px; /* Adjust width as needed */
+    max-width: 100%;
+    padding-right: 3%;
+    }
+
+    .modal-right .modal-content {
+    background-color: #1A1A1A; /* Deep black background */
+    color: #FFFFFF; /* White text */
+    height: 100%;
+    border-radius: 0; /* No rounded corners */
+    border: none;
+    }
+
+    .modal-right .modal-header,
+    .modal-right .modal-footer {
+    border: none; /* Remove borders */
+    }
+
+    /* Close button in the modal */
+    .modal-right .modal-header .btn-close {
+    display: none; /* Hide the close button */
+    }
+
+    /* Hide the backdrop */
+    .modal-backdrop.show {
+    opacity: 0;
+    }
+
+    /* Customized Button */
+    #agreeButton {
+    background-color: #FF6A00; /* Vibrant Orange */
+    border-color: #FF6A00; /* Orange border */
+    color: #FFFFFF; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    display: block; /* Ensure it's block-level for centering */
+    margin: 0 auto; /* Center horizontally */
+    }
+
+    /* Hover and Active States */
+    #agreeButton:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    #agreeButton:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* For clicked state */
+    #agreeButton.clicked {
+    background-color: #F0C5A4 !important; /* Light orange for clicked state */
+    border-color: #000000 !important; /* Black border for clicked state */
+    }
+
+        /* Video container with fixed height */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Style the video to cover the container */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container while maintaining aspect ratio */
+            display: block;
+        }
+
+        /* Style the Play Now button to match .btn-custom */
+    .play-now-button {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Match transitions */
+    z-index: 2;
+    }
+
+    /* Hover state */
+    .play-now-button:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .play-now-button:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+        /* Video overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start (left side) */
+            padding: 20px; /* Add padding to the overlay */
+            box-sizing: border-box;
+            color: white; /* White text color */
+        }
+
+        /* Style for overlay text */
+        .video-overlay h3 {
+            margin-bottom: 20px;
+            font-size: 2rem; /* Adjust font size as needed */
+        }
+        .modal-content {
+            background-color: #FF6A00; /* Set the background color to #f2a65a */
+            color: black; /* Set text color to white for better contrast */
+        }
+
+        .modal-header, .modal-footer {
+            border: none; /* Remove borders if desired */
+        }
+
+        .modal-header .btn-close {
+            color: #000000;
+
+        }
+
+    /* Pricing Section */
+    .price-list-section {
+        padding: 10px;
+        background-color: #1c1c1c;
+        text-align: center;
+    }
+
+    .price-list-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #FF6A00;
+    }
+
+    .price-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .price-card {
+        background-color: #2a2a2a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        color: #c5baaa;
+        transition: transform 0.3s ease;
+        text-align: left;
+    }
+
+    .price-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .price-card .price {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #FF6A00;
+    }
+
+    .price-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .price-card ul li {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .select-plan-btn {
+        background-color: #FF6A00;
+        color: #1c1c1c;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 9px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .select-plan-btn:hover {
+        background-color: #ffffff;
+    }
+
+    .price-card:hover {
+        transform: scale(1.05);
+    }
+
+    #subscriptionModal .modal-dialog {
+    width: 100%; /* Slightly narrower width */
+    max-width: 1000px; /* Max width to control the layout */
+    margin: auto; /* Center the modal */
+    height: auto; /* Let height adjust based on content */
+    }
+
+    #subscriptionModal .modal-content {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal arrangement */
+    flex-wrap: wrap; /* Allow content to wrap if necessary */
+    justify-content: center; /* Center the items horizontally */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px; /* Add padding */  
+    background-color: #1A1A1A; /* Background color */
+    color: #FFFFFF; /* Text color */
+    }
+
+    /* Subscription prompt button */
+    .subscription-prompt button {
+    background-color: #806D61; /* Craft color */
+    color: #FFFFFF; /* White text for contrast */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Slightly larger padding for better touch target */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+
+    /* Hover state */
+    .subscription-prompt button:hover {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* Keep text white */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .subscription-prompt button:active {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* Fit content for buttons with outline-danger class */
+    .btn-outline-danger {
+    max-width: fit-content;
+    }
+
+
+    /* Button default style */
+    .btn-custom {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; 
+    }
+
+
+
+
+
+
+    /* Button hover style */
+    .btn-custom:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Button active style */
+    .btn-custom:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+
+    #contact {
+    background-color: #2F2F2F; /* Light grey/darker background */
+    color: #FFFFFF; /* White text */
+    padding: 40px 0; /* Add padding for better spacing */
+    }
+
+    /* Contact section buttons */
+    .btn-outline-primary {
+    border-color: #FF6A00; /* Orange border */
+    color: #FF6A00; /* Orange text */
+    }
+
+    .btn-outline-primary:hover {
+    background-color: #FF6A00; /* Orange background on hover */
+    color: #FFFFFF; /* White text on hover */
+    }
+
+
+
+
+    .footer {
+    background-color: #1a1a1a; /* dark grey */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    }
+
+    .footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 18px;
+    text-decoration: none;
+    }
+
+    .footer .social-icons a:hover {
+    color: #aaaaaa; /* lighter grey on hover */
+    }
+
+    .footer-links {
+    margin: 20px 0;
+    }
+
+    .footer-links a {
+    color: #ffffff;
+    margin: 0 5px;
+    text-decoration: none;
+    }
+
+    .footer-links a:hover {
+    text-decoration: underline;
+    }
+
+    .footer a {
+    color: #ffffff;
+    }
+
+    .footer a:hover {
+    color: #bbbbbb; /* lighter grey on hover */
+    }
+
+    .footer .footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    }
+</style>
+<body>
+ 
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent">
+    <div class="container-fluid">
+      <div class="mx-auto d-flex align-items-center">
+        <a class="navbar-brand" href="#home"><img src="image/logonew.png" alt="BLVCKLIST" height="30"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link px-5" aria-current="page" href="#videoClip">HOME</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORY</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="act.html">Actions</a>
+                <a class="dropdown-item" href="anim.html">Animations</a>
+                <a class="dropdown-item" href="com.html">Comics</a>
+                <a class="dropdown-item" href="fant.html">Fantasy & Adventures</a>
+                <a class="dropdown-item" href="sci.html">Sci-Fi</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MORE</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="dev.html">About Us</a>
+                  <a class="dropdown-item" href="feat.html">Advertise with Us</a>
+                  <a class="dropdown-item" href="blogs.html">Blogs</a>
+                </div>
+              </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+ 
+</head>
+<body>
+
+<!-- Cookie Agreement Modal -->
+<div class="modal fade modal-right" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cookieModalLabel">WELCOME TO CINEPHILE!</h5>
+          </div>
+          <div class="modal-body">
+              We use cookies to improve browsing experience. Continuing to use this site means you agree to our use of cookies.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="agreeButton">I Agree</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Video with overlay -->
+<div class="video-container">
+  <video id="videoClip" poster="path-to-poster-image.jpg" autoplay muted loop>
+      <source src="image/spiderverse.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay">
+      <h1><strong>SPIDER-MAN: BEYOND THE<br>SPIDERVERSE</strong></h1>
+      <p>Time will tell how big they are looking to go 
+        with Spider-Man: Beyond the Spider-Verse, <br>but after how Spider-Man: Across the Spider-Verse ended, 
+        they have huge expectations to meet. </p>
+        <h4><strong>#1 in the Philippines</strong></h4>
+        <br>
+        <button class="play-now-button" id="playButton">Play Now</button>
+  </div>
+</div>
+<!-- Subscription Prompt Modal -->
+<div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="subscription-prompt">
+                <section class="price-list-section">
+                    <h2>Our Pricing</h2>
+                    <div class="price-list">
+                        <div class="price-card">
+                            <h3>Standard Plan</h3>
+                            <p class="price">$14.99/month</p>
+                            <ul>
+                                <li>Access to all movies</li>
+                                <li>HD and Ultra HD streaming</li>
+                                <li>2 screens at a time</li>
+                            </ul>
+                            <button class="select-plan-btn">Select Plan</button>
+                        </div>
+                        <div class="price-card">
+                            <h3>Premium Plan</h3>
+                            <p class="price">$19.99/month</p>
+                            <ul>
+                                <li>Access to all movies</li>
+                                <li>HD, Ultra HD, and 4K streaming</li>
+                                <li>4 screens at a time</li>
+                            </ul>
+                            <button class="select-plan-btn">Select Plan</button>
+                        </div>
+                    </div>
+                </section>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Cards Section -->
+<div id="styles" class="container my-4">
+  <div id="entertainment" class="row">
+      <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image/homepage/Air.webp" class="card-img-top img-fluid" alt="Style 1">
+              <div class="card-body">
+                  <h5 class="card-title">Air</h5>
+                  <p  class="card-text"><small>Some icons are meant to fly.</small></p>
+                 </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image\homepage\Ford v Ferrari.webp" class="card-img-top" alt="Style 2">
+              <div class="card-body">
+                  <h5 class="card-title">Ford v Ferrari</h5>
+                  <p  class="card-text"><small>One win to remember.</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image\homepage\Les Misérables.webp" class="card-img-top" alt="Style 3">
+              <div class="card-body">
+                  <h5 class="card-title">Les Misérables</h5>
+                  <p  class="card-text"><small>The dream lives.</small></p>
+                  </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image\homepage\Napoleon 1.webp" class="card-img-top" alt="Style 4">
+              <div class="card-body">
+                  <h5 class="card-title">Napoleon</h5>
+                  <p  class="card-text"><small>One of the greatest leaders in history.</small></p>
+                  </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image\homepage\Oppenheimer.webp" class="card-img-top" alt="Style 5">
+              <div class="card-body">
+                  <h5 class="card-title">Oppenheimer</h5>
+                  <p  class="card-text"><small>We gave the power to destroy ourselves.</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <div class="card mb-4">
+              <img src="image\homepage\Steve Jobs.webp" class="card-img-top" alt="Style 6">
+              <div class="card-body">
+                  <h5 class="card-title">Steve Jobs</h5>
+                  <p  class="card-text"><small>Brilliant inventor who struggles with himself.</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Cards Section -->
+<div id="styles" class="container my-4">
+    <div id="entertainment" class="row">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\The Founder.webp" class="card-img-top img-fluid" alt="Style 7">
+                <div class="card-body">
+                    <h5 class="card-title">The Founder</h5>
+                    <p  class="card-text"><small>Humble beginnings of one of our beloved fast food restaurants.</small></p>
+                   </div>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\The Man Who Knew Infinity.webp" class="card-img-top" alt="Style 8">
+                <div class="card-body">
+                    <h5 class="card-title">The Man Who Knew Infinity</h5>
+                    <p  class="card-text"><small>Self-taught Indian mathematical genius who made numerous contributions in several mathematical fields.</small></p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\The Social Network.webp" class="card-img-top" alt="Style 9">
+                <div class="card-body">
+                    <h5 class="card-title">The Social Network</h5>
+                    <p  class="card-text"><small>The history of one of the most well-known, well-visited social sites in the world.</small></p>
+                    </div>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\The Theory of Everything.webp" class="card-img-top" alt="Style 10">
+                <div class="card-body">
+                    <h5 class="card-title">The Theory of Everything</h5>
+                    <p  class="card-text"><small>What if we could rewind the clock back to the very beginning of the universe?</small></p>
+                    </div>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\The Wolf of Wall Street.webp" class="card-img-top" alt="Style 11">
+                <div class="card-body">
+                    <h5 class="card-title">The Wolf of Wall Street</h5>
+                    <p  class="card-text"><small>Jordan Belfort's epic rise to wealth and highs.</small></p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card mb-4">
+                <img src="image\homepage\Tetris.webp" class="card-img-top" alt="Style 12">
+                <div class="card-body">
+                    <h5 class="card-title">Tetris</h5>
+                    <p  class="card-text"><small>The peculiar story of one of the most beloved games in history born during the Cold War.</small></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-custom" onclick="window.location.href='#videoClip'">Back to Top</button>
+    </div>
+    <br>
+    
+
+
+<footer class="footer">
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Help</a> |
+        <a href="#">Terms and Conditions</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Cookie Policy</a> |
+        <a href="#">Advertise with Us</a> 
+    </div>
+    <div class="footer-copyright">
+        &copy; 2024 BLVCKLIST. All rights reserved.
+    </div>
+  </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const playButton = document.getElementById('playButton');
+            const subscriptionModal = new bootstrap.Modal(document.getElementById('subscriptionModal'));
+    
+            playButton.addEventListener('click', function() {
+                // Show the subscription modal
+                subscriptionModal.show();
+            });
+    
+            // Hide the overlay when the modal is triggered
+            document.getElementById('subscribeButton').addEventListener('click', function() {
+                alert('Redirecting to payment/subscription page.');
+                // Add your subscription or payment logic here
+                subscriptionModal.hide();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'), {
+                backdrop: 'static',
+                keyboard: false
+            });
+            cookieModal.show();
+    
+            const agreeButton = document.getElementById('agreeButton');
+            agreeButton.addEventListener('click', function() {
+                // Change button color when clicked
+                agreeButton.classList.add('clicked');
+    
+                // Close the modal and set a cookie or localStorage to remember the user's agreement
+                cookieModal.hide();
+                localStorage.setItem('cookieAgree', 'true');
+            });
+    
+            // Check if the user has already agreed to cookies
+            if (localStorage.getItem('cookieAgree')) {
+                cookieModal.hide();
+            }
+        });
+    </script>
+    
+</body>
+</html>

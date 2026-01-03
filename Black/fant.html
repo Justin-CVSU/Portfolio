@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="image/5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLVCKLIST MOVIE HUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<style>
+            body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c;
+    }
+
+    .navbar-nav .nav-link {
+    font-weight: normal; /* Set font weight to normal */
+    font-size: 10px; /* Adjust font size if needed */
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+
+
+
+    /* Modal Styles */
+    .modal-right .modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 50%;
+    width: 300px; /* Adjust width as needed */
+    max-width: 100%;
+    padding-right: 3%;
+    }
+
+    .modal-right .modal-content {
+    background-color: #1A1A1A; /* Deep black background */
+    color: #FFFFFF; /* White text */
+    height: 100%;
+    border-radius: 0; /* No rounded corners */
+    border: none;
+    }
+
+    .modal-right .modal-header,
+    .modal-right .modal-footer {
+    border: none; /* Remove borders */
+    }
+
+    /* Close button in the modal */
+    .modal-right .modal-header .btn-close {
+    display: none; /* Hide the close button */
+    }
+
+    /* Hide the backdrop */
+    .modal-backdrop.show {
+    opacity: 0;
+    }
+
+    /* Customized Button */
+    #agreeButton {
+    background-color: #FF6A00; /* Vibrant Orange */
+    border-color: #FF6A00; /* Orange border */
+    color: #FFFFFF; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    display: block; /* Ensure it's block-level for centering */
+    margin: 0 auto; /* Center horizontally */
+    }
+
+    /* Hover and Active States */
+    #agreeButton:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    #agreeButton:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* For clicked state */
+    #agreeButton.clicked {
+    background-color: #F0C5A4 !important; /* Light orange for clicked state */
+    border-color: #000000 !important; /* Black border for clicked state */
+    }
+
+        /* Video container with fixed height */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Style the video to cover the container */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container while maintaining aspect ratio */
+            display: block;
+        }
+
+        /* Style the Play Now button to match .btn-custom */
+    .play-now-button {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Match transitions */
+    z-index: 2;
+    }
+
+    /* Hover state */
+    .play-now-button:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .play-now-button:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+        /* Video overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start (left side) */
+            padding: 20px; /* Add padding to the overlay */
+            box-sizing: border-box;
+            color: white; /* White text color */
+        }
+
+        /* Style for overlay text */
+        .video-overlay h3 {
+            margin-bottom: 20px;
+            font-size: 2rem; /* Adjust font size as needed */
+        }
+        .modal-content {
+            background-color: #FF6A00; /* Set the background color to #f2a65a */
+            color: black; /* Set text color to white for better contrast */
+        }
+
+        .modal-header, .modal-footer {
+            border: none; /* Remove borders if desired */
+        }
+
+        .modal-header .btn-close {
+            color: #000000;
+
+        }
+
+    /* Pricing Section */
+    .price-list-section {
+        padding: 10px;
+        background-color: #1c1c1c;
+        text-align: center;
+    }
+
+    .price-list-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #FF6A00;
+    }
+
+    .price-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .price-card {
+        background-color: #2a2a2a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        color: #c5baaa;
+        transition: transform 0.3s ease;
+        text-align: left;
+    }
+
+    .price-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .price-card .price {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #FF6A00;
+    }
+
+    .price-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .price-card ul li {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .select-plan-btn {
+        background-color: #FF6A00;
+        color: #1c1c1c;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 9px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .select-plan-btn:hover {
+        background-color: #ffffff;
+    }
+
+    .price-card:hover {
+        transform: scale(1.05);
+    }
+
+    #subscriptionModal .modal-dialog {
+    width: 100%; /* Slightly narrower width */
+    max-width: 1000px; /* Max width to control the layout */
+    margin: auto; /* Center the modal */
+    height: auto; /* Let height adjust based on content */
+    }
+
+    #subscriptionModal .modal-content {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal arrangement */
+    flex-wrap: wrap; /* Allow content to wrap if necessary */
+    justify-content: center; /* Center the items horizontally */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px; /* Add padding */  
+    background-color: #1A1A1A; /* Background color */
+    color: #FFFFFF; /* Text color */
+    }
+
+    /* Subscription prompt button */
+    .subscription-prompt button {
+    background-color: #806D61; /* Craft color */
+    color: #FFFFFF; /* White text for contrast */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px; /* Slightly larger padding for better touch target */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+
+    /* Hover state */
+    .subscription-prompt button:hover {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* Keep text white */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Active state */
+    .subscription-prompt button:active {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+    /* Fit content for buttons with outline-danger class */
+    .btn-outline-danger {
+    max-width: fit-content;
+    }
+
+
+    /* Button default style */
+    .btn-custom {
+    background-color: #FF6A00; /* Vibrant Orange */
+    color: #FFFFFF; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better click area */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, transform 0.2s; 
+    }
+
+
+
+
+
+
+    /* Button hover style */
+    .btn-custom:hover {
+    background-color: #E55B00; /* Darker Orange */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+
+    /* Button active style */
+    .btn-custom:active {
+    background-color: #D44E00; /* Even darker Orange */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    }
+
+
+
+    #contact {
+    background-color: #2F2F2F; /* Light grey/darker background */
+    color: #FFFFFF; /* White text */
+    padding: 40px 0; /* Add padding for better spacing */
+    }
+
+    /* Contact section buttons */
+    .btn-outline-primary {
+    border-color: #FF6A00; /* Orange border */
+    color: #FF6A00; /* Orange text */
+    }
+
+    .btn-outline-primary:hover {
+    background-color: #FF6A00; /* Orange background on hover */
+    color: #FFFFFF; /* White text on hover */
+    }
+
+
+
+
+    .footer {
+    background-color: #1a1a1a; /* dark grey */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    }
+
+    .footer .social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 18px;
+    text-decoration: none;
+    }
+
+    .footer .social-icons a:hover {
+    color: #aaaaaa; /* lighter grey on hover */
+    }
+
+    .footer-links {
+    margin: 20px 0;
+    }
+
+    .footer-links a {
+    color: #ffffff;
+    margin: 0 5px;
+    text-decoration: none;
+    }
+
+    .footer-links a:hover {
+    text-decoration: underline;
+    }
+
+    .footer a {
+    color: #ffffff;
+    }
+
+    .footer a:hover {
+    color: #bbbbbb; /* lighter grey on hover */
+    }
+
+    .footer .footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    }
+
+    /* Basic resets */
+html {
+    scroll-behavior: smooth;
+}
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #121212;
+}
+
+h1, h2 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+.fant-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if container has height) */
+    height: 250px;           /* Set a height if needed */
+    margin: 0 100px;
+  }
+  
+  /* Style for the logo */
+  .fant-logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .fant-logo:hover {
+    box-shadow: 0 0 20px #e94c0c;
+    transform: scale(1.1);
+  }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+
+
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+}
+
+
+
+
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel Container */
+.movie-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Movie Carousel */
+.movie-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.movie-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.movies-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    will-change: transform;
+    
+}
+
+.movie-card {
+    flex: 0 0 220px; /* Ensures all movie cards have a fixed size */
+    height: 400px; /* Matches height as well */
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    transform: scale(0.8);
+    max-width: 250px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie-card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .movie-card {
+        flex: 0 0 33.33%; /* Adjusts for tablet view */
+        max-width: 33.33%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        flex: 0 0 50%; /* Adjusts for mobile view */
+        max-width: 50%;
+    }
+}
+</style>
+<body>
+<a id="top"></a>
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent">
+  <div class="container-fluid">
+    <div class="mx-auto d-flex align-items-center">
+      <a class="navbar-brand" href="index.html"><img src="image/logonew.png" alt="BLVCKLIST" height="30"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link px-5" aria-current="page" href="index.html">HOME</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORY</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="act.html">Actions</a>
+              <a class="dropdown-item" href="anim.html">Animations</a>
+              <a class="dropdown-item" href="com.html">Comics</a>
+              <a class="dropdown-item" href="fant.html">Fantasy & Adventures</a>
+              <a class="dropdown-item" href="sci.html">Sci-Fi</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link px-5 dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MORE</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="dev.html">About Us</a>
+                <a class="dropdown-item" href="feat.html">Advertise with Us</a>
+                <a class="dropdown-item" href="blogs.html">Blogs</a>
+              </div>
+            </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <br>
+  <br>
+  <br>
+
+ 
+</head>
+<body>
+
+<!-- Movies Section -->
+<section class="movies-section">
+
+    <!-- Comics -->
+    <section class="movies-section">
+        <h1 style="color: #aa570d";>FANTASY & ADVENTURES</h1>
+        <div class="fant-logo-container">
+            <img src="indie.png" class="fant-logo" alt="indie">
+        </div>
+
+        <section class="movie-carousel-section">
+            <h2>INDIANA JONES</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\Raiders of the Lost Ark.webp" alt="Raiders of the Lost Ark"><p>Raiders of the Lost Ark</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\Temple of Doom.webp" alt="Indiana Jones and the Temple of Doom"><p>Indiana Jones and the Temple of Doom</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\Last Crusade.webp" alt="Indiana Jones and the Last Crusade"><p>Indiana Jones and the Last Crusade</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\Kingdom of the Crystal Skull.webp" alt="Indiana Jones and the Kingdom of the Crystal Skull"><p>Indiana Jones and the Kingdom of the Crystal Skull</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\Dial of Destiny.webp" alt="Indiana Jones and the Dial of Destiny"><p>Indiana Jones and the Dial of Destiny</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Indiana Jones\map.webp" alt="World Map"><p></p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		
+		<section class="movie-carousel-section">
+			<h2>THE CHRONICLES OF NARNIA</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\The Lion, The Witch, and the Wardrobe.webp" alt="The Chronicles of Narnia: "><p>The Chronicles of Narnia:</br>The Lion, The Witch, and the Wardrobe</p></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\Prince Caspian.webp" alt="The Chronicles of Narnia: Prince Caspian"><p>The Chronicles of Narnia:</br>Prince Caspian</p></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\The Voyage of the Dawn Treader.webp" alt="The Chronicles of Narnia: The Voyage of the Dawn Treader"><p>The Chronicles of Narnia:</br>The Voyage of the Dawn Treader</p></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\peter.webp" alt="Peter"><h1></h1></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\susan.webp" alt="Susan"><h1></h1></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\luce.jpg" alt="Lucy"><h1></h1></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\ed.webp" alt="Edmund"><h1></h1></div>
+                        <div class="movie-card"><img src="image\Fantasy & Adventures\The Chronicles of Narnia\aslan.webp" alt="Aslan"><h1></h1></div>
+					</div>	
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		<section class="movie-carousel-section">
+            <h2>PIRATES OF THE CARIBBEAN</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Pirates of the Caribbean -->
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\The Curse of the Black Pearl.webp" alt="The Curse of the Black Pearl"><p>The Curse of the Black Pearl</p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Dead Man's Chest.webp" alt="Dead Man's Chest"><p>Dead Man's Chest</p></div>
+                        <div class="movie-card"><img src="image\Pirate World\At World's End.webp" alt="At World's End"><p>At World's End</p></div>
+                        <div class="movie-card"><img src="image\Pirate World\On Stranger Tides.webp" alt="On Stranger Tides"><p>On Stranger Tides</p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Dead Men Tell No Tales.webp" alt="Dead Men Tell No Tales"><p>Dead Men Tell No Tales</p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		<section class="movie-carousel-section">
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Pirates of the Caribbean -->
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Hector Barbossa.webp" alt="Hector Barbossa"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Davy Jones.webp" alt="Davy Jones"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Lord Cutler Beckett.webp" alt="Lord Cutler Beckett"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Edward Teach ~ Blackbeard.webp" alt="Edward Teach ~ Blackbeard"><p></p></div>
+                        <div class="movie-card"><img src="image\Pirate World\Captain Armando Salazar.webp" alt="Captain Armando Salazar"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+						<div class="movie-card"><img src="image\Pirate World\Tell No Tales.jpg" alt="Tell No Tales"><p></p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		<section class="movie-carousel-section">
+            <h2>WIZARDING WORLD</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Harry Potter -->
+						<div class="movie-card"><img src="image\Wizarding World Posters\Harry Potter.webp" alt="Harry Potter"><h1>Harry Potter</h1></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\The Philosopher's Stone.webp" alt="Harry Potter and The Philosopher's Stone"><p>Harry Potter and the Sorcerer's Stone</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Chamber of Secrets.webp" alt="Harry Potter and the Chamber of Secrets"><p>Harry Potter and the Chamber of Secrets</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Prisoner of Azkaban.webp" alt="Harry Potter and the Prisoner of Azkaban"><p>Harry Potter and the Prisoner of Azkaban</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Goblet of Fire.webp" alt="Harry Potter and the Goblet of Fire"><p>Harry Potter and the Goblet of Fire</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Order of the Phoenix.webp" alt="Harry Potter and the Order of the Phoenix"><p>Harry Potter and the Order of the Phoenix</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Half-Blood Prince.webp" alt="Harry Potter and the Half-Blood Prince"><p>Harry Potter and the Half-Blood Prince</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Deathly Hallows Part One.webp" alt="Harry Potter and the Deathly Hallows Part One"><p>Harry Potter and the Deathly Hallows Part One</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Deathly Hallows Part Two.webp" alt="Harry Potter and the Deathly Hallows Part Two"><p>Harry Potter and the Deathly Hallows Part Two</p></div>
+						<div class="movie-card"><img src="image\Wizarding World Posters\Fantastic Beasts.webp" alt="Fantastic Beasts"><h1>Fantastic Beasts</h1></div>
+						<div class="movie-card"><img src="image\Wizarding World Posters\Where to Find Them.webp" alt="Fantastic Beasts and Where to Find Them"><p>Fantastic Beasts and Where to Find Them</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Crimes of Grindelwald.webp" alt="Fantastic Beasts: Crimes of Grindelwald"><p>fantastic Beasts:</br>Crimes of Grindelwald</p></div>
+                        <div class="movie-card"><img src="image\Wizarding World Posters\Secrets of Dumbledore.webp" alt="Fantastic Beasts: Secrets of Dumbledore"><p>Fantastic Beasts:</br>Secrets of Dumbledore</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+		<section class="movie-carousel-section">
+            <h2>MIDDLE EARTH</h2>
+            <div class="movie-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="movie-carousel">
+                    <div class="movies-wrapper">
+                        <!-- Movie cards for Middle Earth -->
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\LOTRTrilogy.webp" alt="The Lord of the Rings Trilogy"><h1>The Lord of the Rings</h1></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Fellowship of the Ring.webp" alt="The Lord of the Rings: The Fellowship of the Ring"><p>The Lord of the Rings:</br>The Fellowship of the Ring</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Two Towers.webp" alt="The Lord of the Rings: The Two Towers"><p>The Lord of the Rings:</br>The Two Towers</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Return of the King.webp" alt="The Lord of the Rings: The Return of the King"><p>The Lord of the Rings:</br>The Return of the King</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\HTrilogy.webp" alt="The Hobbit Trilogy"><h1>The Hobbit</h1></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\An Unexpected Journey.webp" alt="The Hobbit: An Unexpected Journey"><p>The Hobbit:</br>Unexpected Journey</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Desolation of Smaug.webp" alt="The Hobbit: The Desolation of Smaug"><p>The Hobbit:</br>The Desolation of Smaug</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Battle of the Five Armies.webp" alt="The Hobbit: The Battle of the Five Armies"><p>The Hobbit:</br>The Battle of the Five Armies</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Rings of Power.webp" alt="The Lord of the Rings: The Rings of Power"><h1>The Rings of Power</h1></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Rings of Power S1.webp" alt="The Lord of the Rings: The Rings of Power S1"><p>The Lord of the Rings:</br>The Rings of Power S1</p></div>
+						<div class="movie-card"><img src="image\Fantasy & Adventures\Middle Earth\The Rings of Power S2.webp" alt="The Lord of the Rings: The Rings of Power S2"><p>The Lord of the Rings:</br>The Rings of Power S2</p></div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </section>
+</section>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-custom" onclick="window.location.href='#top'">Back to Top</button>
+    </div>
+    <br>
+  
+
+<footer class="footer">
+  <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="footer-links">
+      <a href="#">Contact Us</a> |
+      <a href="#">Help</a> |
+      <a href="#">Terms and Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Cookie Policy</a> |
+      <a href="#">Advertise with Us</a> 
+  </div>
+  <div class="footer-copyright">
+      &copy; 2024 BLVCKLIST. All rights reserved.
+  </div>
+</footer>
+
+<!-- JavaScript for Carousel -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousels = document.querySelectorAll(".movie-carousel-container");
+            carousels.forEach(function (carousel) {
+                const moviesWrapper = carousel.querySelector(".movies-wrapper");
+                const prevButton = carousel.querySelector(".carousel-button.prev");
+                const nextButton = carousel.querySelector(".carousel-button.next");
+                const cardWidth = carousel.querySelector(".movie-card").offsetWidth + 20; // Adding margin
+                const totalCards = moviesWrapper.children.length;
+                let scrollPosition = 0;
+
+                // Function to move the carousel
+                function moveCarousel(direction) {
+                    const maxScroll = moviesWrapper.scrollWidth - moviesWrapper.clientWidth;
+                    scrollPosition += direction * cardWidth;
+
+                    if (scrollPosition < 0) {
+                         // If we're at the start and moving backward, jump to the end
+                        scrollPosition = maxScroll;
+                    } else if (scrollPosition > maxScroll) {
+                        // If we're at the end and moving forward, jump to the start
+                        scrollPosition = 0;
+                    }
+
+                    moviesWrapper.style.transform = `translateX(-${scrollPosition}px)`;
+                }
+
+                // Attach event listeners to buttons
+                prevButton.addEventListener("click", function () {
+                    moveCarousel(-1);
+                });
+
+                nextButton.addEventListener("click", function () {
+                    moveCarousel(1);
+                });
+            });
+        });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
